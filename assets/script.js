@@ -37,13 +37,16 @@ $("#back-button").on("click", function () {});
 // on the recipe list page (page 3) call a
 // function to display the recipe detail page.
 <<<<<<< HEAD
+<<<<<<< HEAD
 $("#image-click").on("click", function () {}) /
   // // ---------------Google Places AJAX Call ---------------
+=======
+$("#image-click").on("click", function () {});
+>>>>>>> main
 
+// // ---------------Google Places AJAX Call ---------------
 
-
-/**recipes api call to spoonacular*/
-const settings = {
+const spoonacularSettings = {
   async: true,
   crossDomain: true,
   //current set to 10 randome recipes, can be changed
@@ -104,19 +107,6 @@ function createMarker(place) {
     infowindow.open(map);
   });
 }
-
-const spoonacularSettings = {
-	"async": true,
-    "crossDomain": true,
-    //current set to 10 randome recipes, can be changed
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-	}
-};
-
 
 $.ajax(spoonacularSettings).done(function (response) {
   console.log(response.recipes);

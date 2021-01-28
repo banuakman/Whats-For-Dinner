@@ -5,21 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's For Dinner</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"/>
-    <link rel="stylesheet" href="./assets/style.css" />
-
+    <!-- like to foundation cdn  -->
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
+    <!-- link to css style sheet  -->
+    <link rel="stylesheet" href="./assets/style.css"/>
+    <!-- google maps api src  -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4CRiYoGBXcZ0BS3z8UK1lFFILHs3VOKQ&callback=initMap&libraries=places&v=weekly"
       defer
     ></script>
-
+    <!-- script for jquery cdn. is one for foundation? -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-
   </head>
+
+  <!-- Initializing button for generating options  -->
   <body>
     <div class="callout large" id="startOption">
       <div class="row column text-center">
@@ -30,20 +33,26 @@
       </div>
     </div>
 
+    <!-- container to update recipe displays  -->
     <div class="container">
       <ul class="recipes"></ul>
     </div>
+
     <div id="map"></div>
 
-    <script src="./assets/map.js"></script>
-
+    <!-- resteraunt container  -->
     <div class="container">
       <ul class="restaurants">
         <li>rest 1</li>
       </ul>
     </div>
 
+    <!-- google map for restaurant options  -->
+    <script src="./assets/map.js"></script>
+    <!-- jquery cdn. is one for foundation? -->
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
   </body>
