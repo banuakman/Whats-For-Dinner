@@ -12,56 +12,70 @@
 // when the user pressed the eat out button --->
 // a dish gets randomly generated
 
-// // ---------------Google Places AJAX Call ---------------
+// When the user clicks the "Random" button (on page 1)
+// call the function to generate three random dishes
+// and display them.
+$("#random-button").on("click", function () {});
 
-// var map;
-// var service;
-// var infowindow;
+// When the user clicks on the "Regenerate" button
+// (on page 2) call a function to get three
+// different random recipes and display them.
+$("#regenerate-button").on("click", function () {});
 
-// function initMap() {
-//   var sydney = new google.maps.LatLng(-33.867, 151.195);
+// When the user clicks on the Submit button
+// (on page 2) call a function to get the user's
+// choices on page 2 get data based on their choices.
+$("#submit-button").on("click", function () {});
 
-//   infowindow = new google.maps.InfoWindow();
+// When the user clicks on the Back button
+// (on page 2 - restaurants or recipes) call a
+// function to go back to the list of random
+// choices (page 2).
+$("#back-button").on("click", function () {});
 
-//   map = new google.maps.Map(document.getElementById(".map"), {
-//     center: sydney,
-//     zoom: 15,
-//   });
+// When the user clicks an image of a recipe
+// on the recipe list page (page 3) call a
+// function to display the recipe detail page.
+$("#image-click").on("click", function () {}) /
+  // // ---------------Google Places AJAX Call ---------------
 
-//   var request = {
-//     query: "Museum of Contemporary Art Australia",
-//     fields: ["name", "geometry"],
-//   };
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+  });
 
-//   var service = new google.maps.places.PlacesService(map);
+/**recipes api call to spoonacular*/
+const settings = {
+  async: true,
+  crossDomain: true,
+  //current set to 10 randome recipes, can be changed
+  url:
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10",
+  method: "GET",
+  headers: {
+    "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
 
-// service.findPlaceFromQuery(request, function (results, status) {
-//   if (status === google.maps.places.PlacesServiceStatus.OK) {
-//     for (var i = 0; i < results.length; i++) {
-//       createMarker(results[i]);
-//     }
-//     map.setCenter(results[0].geometry.location);
-//   }
-// });
+$.ajax(settings).done(function (response) {
+  console.log(response.recipes);
+  displayReceipe(response.recipes);
+});
 
-// initMap();
-
-// $.ajax(settings).done(function (response) {
-//   console.log(response.recipes);
-//   displayReceipe(response.recipes);
-// });
-
-// function displayReceipe(recipes) {
-//   for (var i = 0; i < recipes.length; i++) {
-//     var title = recipes[i].title;
-//     var instructions = recipes[i].instructions;
-//     var liEl = $("<li>").html(
-//       "<h4>" + title + "</h4><p>" + instructions + "</p>"
-//     );
-//     var aEl = $("<a>")
-//       .attr("href", recipes[i].sourceUrl)
-//       .text(recipes[i].sourceUrl);
-//     liEl.append(aEl);
-//     $(".recipes").append(liEl);
-//   }
-// }
+function displayReceipe(recipes) {
+  for (var i = 0; i < recipes.length; i++) {
+    var title = recipes[i].title;
+    var instructions = recipes[i].instructions;
+    var liEl = $("<li>").html(
+      "<h4>" + title + "</h4><p>" + instructions + "</p>"
+    );
+    var aEl = $("<a>")
+      .attr("href", recipes[i].sourceUrl)
+      .text(recipes[i].sourceUrl);
+    liEl.append(aEl);
+    $(".recipes").append(liEl);
+  }
+}
