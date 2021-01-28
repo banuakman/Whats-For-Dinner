@@ -3,7 +3,7 @@
 // - variables
 
 // ----------- Data ----------------------
-//--
+//
 
 // ----------- Functions ------------------
 
@@ -36,32 +36,7 @@ $("#back-button").on("click", function () {});
 // When the user clicks an image of a recipe
 // on the recipe list page (page 3) call a
 // function to display the recipe detail page.
-$("#image-click").on("click", function () {}) /
-
-// // ---------------Google Places AJAX Call ---------------
 $("#image-click").on("click", function () {});
-
-// // ---------------Google Places AJAX Call ---------------
-const spoonacularSettings = {
-  async: true,
-  crossDomain: true,
-  //current set to 10 randome recipes, can be changed
-  url:
-    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10",
-  method: "GET",
-  headers: {
-    "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
-    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  },
-};
-
-$("#image-click").on("click", function() {
-
-})
-
-
-
-
 
 // // ---------------Google Places AJAX Call ---------------
 
