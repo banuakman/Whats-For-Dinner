@@ -22,6 +22,7 @@
 
 var map;
 var service;
+var infowindow;
 
 function initMap() {
   var sydney = new google.maps.LatLng(-33.867, 151.195);
@@ -34,19 +35,29 @@ function initMap() {
   });
 
   var request = {
-    query: "Museum of Contemporary Art Australia",
-    fields: ["name", "geometry"],
+    location: sydney,
+    radius: "500",
+    type: ["spaghetti"],
   };
 
-  var service = new google.maps.places.PlacesService(map);
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
 
-  service.findPlaceFromQuery(request, function (results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
-      map.setCenter(results[0].geometry.location);
-      console.log(results);
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
     }
+  }
+}
+function createMarker(place) {
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+  google.maps.event.addListener(marker, "click", () => {
+    infowindow.setContent(place.name);
+    infowindow.open(map);
   });
 }

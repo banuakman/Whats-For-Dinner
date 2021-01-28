@@ -39,12 +39,7 @@ $("#back-button").on("click", function () {});
 $("#image-click").on("click", function () {}) /
   // // ---------------Google Places AJAX Call ---------------
 
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-  }).then(function (response) {
-    console.log(response);
-  });
+
 
 /**recipes api call to spoonacular*/
 const settings = {
@@ -60,7 +55,20 @@ const settings = {
   },
 };
 
-$.ajax(settings).done(function (response) {
+const spoonacularSettings = {
+	"async": true,
+    "crossDomain": true,
+    //current set to 10 randome recipes, can be changed
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+	}
+};
+
+
+$.ajax(spoonacularSettings).done(function (response) {
   console.log(response.recipes);
   displayReceipe(response.recipes);
 });
