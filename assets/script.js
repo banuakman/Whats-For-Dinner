@@ -66,7 +66,7 @@ function initMap() {
     zoom: 15,
   });
   const request = {
-    query: "retaurants",
+    query: "chinese retaurants",
     fields: ["name", "geometry"],
   };
   service = new google.maps.places.PlacesService(map);
@@ -74,7 +74,7 @@ function initMap() {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        console.log("search result" + i + ":" + results);
+        console.log(results[i]);
       }
       map.setCenter(results[0].geometry.location);
     }
