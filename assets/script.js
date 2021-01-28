@@ -12,6 +12,46 @@
 // when the user pressed the eat out button --->
 // a dish gets randomly generated
 
+// When the user clicks the "Random" button (on page 1) 
+// call the function to generate three random dishes
+// and display them.
+$("#random-button").on("click", function() {
+
+})
+
+// When the user clicks on the "Regenerate" button 
+// (on page 2) call a function to get three
+// different random recipes and display them.
+$("#regenerate-button").on("click", function() {
+
+})
+
+// When the user clicks on the Submit button 
+// (on page 2) call a function to get the user's
+// choices on page 2 get data based on their choices.
+$("#submit-button").on("click", function() {
+
+})
+
+// When the user clicks on the Back button
+// (on page 2 - restaurants or recipes) call a 
+// function to go back to the list of random
+// choices (page 2).
+$("#back-button").on("click", function() {
+
+})
+
+// When the user clicks an image of a recipe 
+// on the recipe list page (page 3) call a 
+// function to display the recipe detail page.
+$("#image-click").on("click", function() {
+
+})
+
+
+
+
+
 // // ---------------Google Places AJAX Call ---------------
 
 var map;
