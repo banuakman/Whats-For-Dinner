@@ -40,17 +40,19 @@ showMap.click(function () {
         };
 
         service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
+        service.nearbySearch(request, nearBySearchHandler);
 
         //----- gennerate function
       },
       () => {
-        handleLocationError(true, infoWindow, map.getCenter());
+        // handleLocationError(true, infoWindow, map.getCenter());
+        textSearch();
       }
     );
   } else {
     // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
+    // handleLocationError(false, infoWindow, map.getCenter());
+    textSearch();
   }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -65,13 +67,45 @@ showMap.click(function () {
 });
 
 // ------------- handle results ----------------------
-function callback(results, status) {
+function nearBySearchHandler(results, status) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
     }
   }
+}
+
+function textSearchHandler(results, status) {
+    // --------- loop results and add marker ---------
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      var lat = results[0].geometry.location.lat();
+      var lng = results[0].geometry.location.lng();
+      
+      map.setCenter({lat: lat, lng: lng}); 
+
+      for (var i = 0; i < results.length; i++) {
+        // console.log(results[i]);
+        createMarker(results[i]);
+      }
+    }
+  }
+
+function textSearch() {
+    /*without geolocation center: either we create map with a default center location, e.g. New York or without center, if we want to support search to a different city or area far away, do not set center 
+    Center will set once we have result from the search and set the first result location as the map center
+    */
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+    });
+    service = new google.maps.places.PlacesService(map);
+  //---------------text search --------------------
+    var textSearchRequest = {
+        query: 'shake shake in new york',
+        type: 'restaurant'
+    }
+
+  service.textSearch(textSearchRequest, textSearchHandler);
 }
 
 // ------------- add marker ---------------
