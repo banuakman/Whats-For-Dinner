@@ -4,10 +4,10 @@ var service;
 var infoWindow;
 // let infoWindow;
 
-
-
 // ---- build and place show map button ----
-showMap = $("<button>").attr("class", "button btn locate-btn").text("Display Map");
+showMap = $("<button>")
+  .attr("class", "button btn locate-btn")
+  .text("Display Map");
 $(".displayMap").append(showMap);
 //------ click function initiates map build ---------
 showMap.click(function () {
@@ -103,43 +103,41 @@ function textSearchHandler(results, status) {
     var lat = results[0].geometry.location.lat();
     var lng = results[0].geometry.location.lng();
 
-    map.setCenter({lat: lat, lng: 1++})
+    map.setCenter({ lat: lat, lng: 1++ });
 
-      for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
     }
   }
 }
 
 // ---- search term is optional ----
 function searchFoodInMap() {
-    //TODO: grab title from user selected dish
-    var selectedDishTitle = "macchiato";
+  //TODO: grab title from user selected dish
+  var selectedDishTitle = "macchiato";
 
-    var searchTerm = selectedDishTitle; //default is grabing from the selected dish title
-    var searchLocation;
-    var query;
+  var searchTerm = selectedDishTitle; //default is grabing from the selected dish title
+  var searchLocation;
+  var query;
 
-    $("#mapSearchBtn").click(function(event) {
-        event.preventDefault();
+  $("#mapSearchBtn").click(function (event) {
+    event.preventDefault();
 
-        searchTerm = $("#searchTerm").val();
-        searchLocation = $("#searchLoc").val();
+    searchTerm = $("#searchTerm").val();
+    searchLocation = $("#searchLoc").val();
 
-        query = searchLocation? `${searchTerm} in ${searchLocation}`: searchTerm;
-        //perform google search
-        textSearch(query);
+    query = searchLocation ? `${searchTerm} in ${searchLocation}` : searchTerm;
+    //perform google search
+    textSearch(query);
 
-        //clear search input
-        $("#searchTerm").val("");
-        $("#searchLoc").val("");
-    });
-    
+    //clear search input
+    $("#searchTerm").val("");
+    $("#searchLoc").val("");
+  });
 }
 
 function textSearch(input) {
-    /*without geolocation center: either we create map with a default center location, e.g. New York or without center, if we want to support search to a different city or area far away, do not set center 
+  /*without geolocation center: either we create map with a default center location, e.g. New York or without center, if we want to support search to a different city or area far away, do not set center 
     Center will set once we have result from the search and set the first result location as the map center
     */
   map = new google.maps.Map(document.getElementById("map"), {
@@ -147,10 +145,10 @@ function textSearch(input) {
   });
   service = new google.maps.places.PlacesService(map);
   //---------------text search --------------------
-    var textSearchRequest = {
-        query: input,
-        type: 'restaurant'
-    }
+  var textSearchRequest = {
+    query: input,
+    type: "restaurant",
+  };
 
   service.textSearch(textSearchRequest, textSearchHandler);
 }
