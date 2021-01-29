@@ -4,9 +4,7 @@
 
 
 
-
 // Data ==================================================
-
 
 
 
@@ -34,15 +32,16 @@ $.ajax(spoonacularSettings).done(function (response) {
 function displayRandom(recipes) {
    for (var i = 0; i < recipes.length; i++) {
      var title = recipes[i].title;
-     var liEl = $("<li>").html("<h4>" + title + "</h4>");
+     var titleEl = $("<div>")
+       .attr("class", "columns large-4")
+       .html("<h4>" + title + "</h4>");
      var imgEl = $("<img>")
        .attr("src", recipes[i].image)
        .text("alt", recipes[i].title);
-     liEl.append(imgEl);
-     $(".recipes").append(liEl);
+     titleEl.append(imgEl);
+     $(".recipes").append(titleEl);
    }
  }
-
 
 // Display Recipe Details
 function displayRecipe(recipes) {
