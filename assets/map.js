@@ -1,8 +1,9 @@
 // variables set from google maps docs
 var map;
 var service;
-var infoWindow;
+var infowindow;
 // let infoWindow;
+console.log("hello");
 
 // ---- build and place show map button ----
 showMap = $("<button>")
@@ -78,21 +79,6 @@ function nearBySearchHandler(results, status) {
     for (var i = 0; i < results.length; i++) {
       console.log("places 1", results[i]);
       getPlaceID(map, results[i]);
-      // createMarker(results[i]);
-      // google.maps.event.addListener(results[i], "click", function () {
-      //   console.log("hello marker");
-      //   infoWindow.setContent(
-      // "<div><strong>" +
-      //   place.name +
-      //   "</strong><br>" +
-      //   "Place ID: " +
-      //   place.place_id +
-      //   "<br>" +
-      //   place.formatted_address +
-      //   "</div>"
-      //   );
-      //   infoWindow.open(map, marker);
-      // });
     }
   }
 }
