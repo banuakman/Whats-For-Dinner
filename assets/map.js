@@ -1,8 +1,7 @@
 // variables set from google maps docs
 var map;
 var service;
-var infowindow;
-// let infoWindow;
+var infoWindow;
 console.log("hello");
 
 // ---- build and place show map button ----
@@ -37,15 +36,13 @@ showMap.click(function () {
 
         // -------- places request -------
         var request = {
-          location: pos,
-          radius: "500",
-          type: ["restaurant"],
-          //-------- this querey will be equal to a variable we set from random generated dish -----------
-          query: "Jerk Chicken",
+          type: "restaurant",
+          query: "indian",
         };
+        console.log("request", request);
 
         service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, nearBySearchHandler);
+        service.textSearch(request, textSearchHandler);
 
         searchFoodInMap();
         //----- gennerate function
@@ -72,16 +69,16 @@ showMap.click(function () {
   }
 });
 
-// ------------- handle results ----------------------
-function nearBySearchHandler(results, status) {
-  // --------- loop results and add marker ---------
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      console.log("places 1", results[i]);
-      getPlaceID(map, results[i]);
-    }
-  }
-}
+// // ------------- handle results ----------------------
+// function nearBySearchHandler(results, status) {
+//   // --------- loop results and add marker ---------
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     for (var i = 0; i < results.length; i++) {
+//       console.log("places 1", results[i]);
+//       getPlaceID(map, results[i]);
+//     }
+//   }
+// }
 
 function textSearchHandler(results, status) {
   // --------- loop results and add marker ---------
@@ -89,15 +86,15 @@ function textSearchHandler(results, status) {
     var lat = results[0].geometry.location.lat();
     var lng = results[0].geometry.location.lng();
 
-    map.setCenter({ lat: lat, lng: 1++ });
+    map.setCenter({ lat: lat, lng: lng });
 
     for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
+      getPlaceID(map, results[i]);
     }
   }
 }
 
-// ---- search term is optional ----
+// // ---- search term is optional ----
 function searchFoodInMap() {
   //TODO: grab title from user selected dish
   var selectedDishTitle = "macchiato";
@@ -139,6 +136,23 @@ function textSearch(input) {
   service.textSearch(textSearchRequest, textSearchHandler);
 }
 
+// ----- Gets Place Info and Intitiates Create marker ------------
+function getPlaceID(map, results) {
+  console.log("hello");
+  const request = {
+    placeId: results.place_id,
+    fields: ["name", "formatted_address", "place_id", "geometry", "website"],
+  };
+  infoWindow = new google.maps.InfoWindow();
+  service = new google.maps.places.PlacesService(map);
+  service.getDetails(request, (place, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      createMarker(place);
+      console.log("info place", place);
+    }
+  });
+}
+
 // ------------- add marker ---------------
 function createMarker(place) {
   const marker = new google.maps.Marker({
@@ -159,22 +173,5 @@ function createMarker(place) {
         "</div>"
     );
     infoWindow.open(map, marker);
-  });
-}
-
-// ----- Gets Place Info and Intitiates Create marker ------------
-function getPlaceID(map, results) {
-  console.log("hello");
-  const request = {
-    placeId: results.place_id,
-    fields: ["name", "formatted_address", "place_id", "geometry", "website"],
-  };
-  infoWindow = new google.maps.InfoWindow();
-  service = new google.maps.places.PlacesService(map);
-  service.getDetails(request, (place, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      createMarker(place);
-      console.log("info place", place);
-    }
   });
 }
