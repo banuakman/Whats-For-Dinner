@@ -59,15 +59,20 @@ var service;
 var infowindow;
 
 function initMap() {
-  const currentLoc = new google.maps.LatLng(-33.867, 151.195);
+  // TODO: get the latitude and longitude from current location  
+  var currentLoc = new google.maps.LatLng(47.6129432,-122.4821475);
+
   infowindow = new google.maps.InfoWindow();
   map = new google.maps.Map(document.getElementById("map"), {
     center: currentLoc,
     zoom: 15,
   });
-  const request = {
-    query: "chinese retaurants",
-    fields: ["name", "geometry"],
+ 
+ var request = {
+
+    query: "chicken curry",
+    //changefields to include other information about the place: full list can be found here: https://developers.google.com/places/web-service/search#PlaceSearchResults
+    fields: ["name", "geometry", "name", "place_id"],
   };
   service = new google.maps.places.PlacesService(map);
   service.findPlaceFromQuery(request, (results, status) => {
@@ -96,7 +101,7 @@ const spoonacularSettings = {
 	"async": true,
     "crossDomain": true,
     //current set to 10 randome recipes, can be changed
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=10",
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
@@ -105,22 +110,22 @@ const spoonacularSettings = {
 };
 
 
-$.ajax(spoonacularSettings).done(function (response) {
-  console.log(response.recipes);
-  displayReceipe(response.recipes);
-});
+// $.ajax(spoonacularSettings).done(function (response) {
+//   console.log(response.recipes);
+//   displayReceipe(response.recipes);
+// });
 
-function displayReceipe(recipes) {
-  for (var i = 0; i < recipes.length; i++) {
-    var title = recipes[i].title;
-    var instructions = recipes[i].instructions;
-    var liEl = $("<li>").html(
-      "<h4>" + title + "</h4><p>" + instructions + "</p>"
-    );
-    var aEl = $("<a>")
-      .attr("href", recipes[i].sourceUrl)
-      .text(recipes[i].sourceUrl);
-    liEl.append(aEl);
-    $(".recipes").append(liEl);
-  }
-}
+// function displayReceipe(recipes) {
+//   for (var i = 0; i < recipes.length; i++) {
+//     var title = recipes[i].title;
+//     var instructions = recipes[i].instructions;
+//     var liEl = $("<li>").html(
+//       "<h4>" + title + "</h4><p>" + instructions + "</p>"
+//     );
+//     var aEl = $("<a>")
+//       .attr("href", recipes[i].sourceUrl)
+//       .text(recipes[i].sourceUrl);
+//     liEl.append(aEl);
+//     $(".recipes").append(liEl);
+//   }
+// }
