@@ -38,16 +38,21 @@
     </div>
 
     <!-- container to update recipe displays  -->
-    <div class="callout">
+    <div class="callout" id="recipe-image-container">
       <div class="row recipes"></div>
     </div>
 
     <!-- display map button  -->
-    <div class="displayMap" style="margin: auto; width: 50%"></div>
+    <div
+      class="displayMap"
+      id="display-map"
+      style="margin: auto; width: 50%"
+    ></div>
+
     <div id="map" class="hide"></div>
 
     <!-- resteraunt container  -->
-    <div class="container">
+    <div class="container" id="restaurant-list">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
         <input
@@ -74,7 +79,7 @@
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
     <!-- google map for restaurant options  -->
-    <script src="./assets/map.js"></script>
+    <script src="assets/map.js"></script>
     <!-- jquery cdn. is one for foundation? -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
