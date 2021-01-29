@@ -65,7 +65,7 @@ showMap.click(function () {
 });
 
 // ------------- handle results ----------------------
-function callback(results, status) {
+function initMap(results, status) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
