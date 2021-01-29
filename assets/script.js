@@ -16,7 +16,6 @@ restaurantList.classList.add("hide");
 // Data ==================================================
 
 
-
 // Functions =============================================
 
 // AJAX Call Spoonacular API 
@@ -76,10 +75,9 @@ function displayRecipe(recipes) {
 // call the function to generate three random dishes
 // and display them.
 $("#whatsfordinner").on("click", function () {
-    
-recipeImageContainer.classList.remove("hide");
-    // recipeImageContainer.textContent= "";
 
+    recipeImageContainer.classList.remove("hide");
+    // recipeImageContainer.textContent= "";
     displayRandom(recipesObject);
 
 });

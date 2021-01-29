@@ -22,10 +22,9 @@
     ></script>
   </head>
 
-
   <body>
   
-    <!--TOPBAR ================================================================================-->
+    <!--TOPBAR =============================================================================== -->
     <div class="top-bar large-12">
       <div class="top-bar-left">
           <h1 class="menu-text">What's for Dinner?</h1>
@@ -42,6 +41,7 @@
       </div>
     </div>
 
+
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
     <div class="callout" id="recipe-image-container">
       <div class="row recipes">
@@ -49,6 +49,7 @@
         <!-- display recipe button will append here in dropdown menu-->
       </div>
     </div>
+
 
           <!--Display map button will be carried in the dropdownmenu-->
           <!-- display map button  -->
@@ -60,7 +61,14 @@
             <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
           </div>
 
-    <!-- RESTAURANT -->
+
+    <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
+    <div class="grid-x" id="recipe-details">
+        <!-- recipe details will append here-->
+    </div>
+
+
+    <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
     <div class="container" id="restaurant-list">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
@@ -73,6 +81,8 @@
         <!-- <li>rest 1</li> -->
       </ul>
     </div>
+
+
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
     <!-- google map for restaurant options  -->
