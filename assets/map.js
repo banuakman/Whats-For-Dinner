@@ -1,13 +1,13 @@
 // variables set from google maps docs
 var map;
 var service;
-var infowindow;
+var infoWindow;
 // let infoWindow;
 
+
+
 // ---- build and place show map button ----
-showMap = $("<button>")
-  .attr("class", "button btn locate-btn")
-  .text("Display Map");
+showMap = $("<button>").attr("class", "button btn locate-btn").text("Display Map");
 $(".displayMap").append(showMap);
 //------ click function initiates map build ---------
 showMap.click(function () {
