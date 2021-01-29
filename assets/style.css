@@ -2,3 +2,13 @@
   border: 1px solid black;
   margin: 50px;
 }
+
+#map {
+  height: 400px;
+  width: 50%;
+  margin: auto;
+}
+
+.hide {
+  display: none;
+}
