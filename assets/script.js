@@ -1,7 +1,6 @@
 // Dependencies ==========================================
 // - DOM Elements
 // - variables
-console.log("script", "hello");
 
 // Get the DOM elements to hide when initially loading page.
 var recipeImageContainer = document.getElementById("recipe-image-container");
@@ -77,7 +76,6 @@ function displayRecipe(recipes) {
 $("#whatsfordinner").on("click", function () {
   recipeImageContainer.classList.remove("hide");
   //recipeImageContainer.textContent= "";
-  console.log("click");
 
   displayRandom(recipesObject);
 });
