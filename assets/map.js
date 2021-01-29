@@ -69,17 +69,6 @@ showMap.click(function () {
   }
 });
 
-// // ------------- handle results ----------------------
-// function nearBySearchHandler(results, status) {
-//   // --------- loop results and add marker ---------
-//   if (status == google.maps.places.PlacesServiceStatus.OK) {
-//     for (var i = 0; i < results.length; i++) {
-//       console.log("places 1", results[i]);
-//       getPlaceID(map, results[i]);
-//     }
-//   }
-// }
-
 function textSearchHandler(results, status) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
