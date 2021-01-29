@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's For Dinner</title>
     <!-- like to foundation cdn  -->
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
+    />
     <!-- link to css style sheet  -->
-    <link rel="stylesheet" href="./assets/style.css"/>
+    <link rel="stylesheet" href="./assets/style.css" />
     <!-- google maps api src  -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4CRiYoGBXcZ0BS3z8UK1lFFILHs3VOKQ&libraries=places&v=weekly"
@@ -27,8 +30,10 @@
     <div class="callout large" id="startOption">
       <div class="row column text-center">
         <h1>What's For Dinner</h1>
-        <!--<h2>Choose Button</h2>-->
-        <button class="button large" type="button" id="whatsfordinner">What's for Dinner?</button>
+        <h2>Choose Button</h2>
+        <button class="button large" type="button" id="whatsfordinner">
+          What's for Dinner?
+        </button>
       </div>
     </div>
 
@@ -38,17 +43,34 @@
     </div>
 
     <!-- display map button  -->
-    <div class="displayMap" id="display-map" style="margin: auto; width: 50%"></div>
+    <div
+      class="displayMap"
+      id="display-map"
+      style="margin: auto; width: 50%"
+    ></div>
+
     <div id="map" class="hide"></div>
 
     <!-- resteraunt container  -->
     <div class="container" id="restaurant-list">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
-        <input type="text" name="searchTerm" id="searchTerm" placeholder="Type in a dish name, cuisine, restaurant name, etc">
+        <input
+          type="text"
+          name="searchTerm"
+          id="searchTerm"
+          placeholder="Type in a dish name, cuisine, restaurant name, etc"
+        />
         <label for="searchLoc">Where: </label>
-        <input type="text" name="searchLoc" id="searchLoc" placeholder="city, Neighborhood, etc">
-        <button type="button" id="mapSearchBtn" class="button">Search Map</button>
+        <input
+          type="text"
+          name="searchLoc"
+          id="searchLoc"
+          placeholder="city, Neighborhood, etc"
+        />
+        <button type="button" id="mapSearchBtn" class="button">
+          Search Map
+        </button>
       </form>
       <ul class="restaurants">
         <!-- <li>rest 1</li> -->
@@ -57,7 +79,7 @@
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
     <!-- google map for restaurant options  -->
-    <script src="./assets/map.js"></script>
+    <script src="assets/map.js"></script>
     <!-- jquery cdn. is one for foundation? -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
