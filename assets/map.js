@@ -40,7 +40,7 @@ showMap.click(function () {
         };
 
         service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
+        service.nearbySearch(request, nearBySearchHandler);
 
         //----- gennerate function
       },
@@ -65,7 +65,7 @@ showMap.click(function () {
 });
 
 // ------------- handle results ----------------------
-function initMap(results, status) {
+function nearBySearchHandler(results, status) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
