@@ -25,7 +25,7 @@
 
   <body>
   
-    <!-- TOPBAR -->
+    <!--TOPBAR ================================================================================-->
     <div class="top-bar large-12">
       <div class="top-bar-left">
           <h1 class="menu-text">What's for Dinner?</h1>
@@ -33,7 +33,7 @@
     </div>
 
 
-  <!-- Callout for Random Genaration of 3 dishes  --> 
+  <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
     <div class="callout large-12" id="startOption">
       <div class="row column text-center">
         <h3>What's For Dinner</h3>
@@ -42,16 +42,25 @@
       </div>
     </div>
 
-    <!-- container to update recipe displays  -->
+    <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
     <div class="callout" id="recipe-image-container">
-      <div class="row recipes"></div>
+      <div class="row recipes">
+        <!-- 3 Dishes with Title & Picture in 3 columns append here -->
+        <!-- display recipe button will append here in dropdown menu-->
+      </div>
     </div>
 
-    <!-- display map button  -->
-    <div class="displayMap" id="display-map" style="margin: auto; width: 50%"></div>
-    <div id="map" class="hide"></div>
+          <!--Display map button will be carried in the dropdownmenu-->
+          <!-- display map button  -->
+          <div class="displayMap" id="display-map" style="margin: auto; width: 50%"></div>
+          <div id="map" class="hide"></div>
 
-    <!-- resteraunt container  -->
+          <!-- Regenarate Buttons -->
+          <div class="regenerate text-center hideThisLater">
+            <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
+          </div>
+
+    <!-- RESTAURANT -->
     <div class="container" id="restaurant-list">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>

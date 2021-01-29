@@ -77,8 +77,8 @@ function displayRecipe(recipes) {
 // and display them.
 $("#whatsfordinner").on("click", function () {
     
-    recipeImageContainer.classList.remove("hide");
-    //recipeImageContainer.textContent= "";
+recipeImageContainer.classList.remove("hide");
+    // recipeImageContainer.textContent= "";
 
     displayRandom(recipesObject);
 
