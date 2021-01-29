@@ -69,6 +69,17 @@ showMap.click(function () {
   }
 });
 
+// // ------------- handle results ----------------------
+// function nearBySearchHandler(results, status) {
+//   // --------- loop results and add marker ---------
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     for (var i = 0; i < results.length; i++) {
+//       console.log("places 1", results[i]);
+//       getPlaceID(map, results[i]);
+//     }
+//   }
+// }
+
 function textSearchHandler(results, status) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -79,20 +90,6 @@ function textSearchHandler(results, status) {
 
     for (var i = 0; i < results.length; i++) {
       getPlaceID(map, results[i]);
-    }
-  }
-}
-
-function textSearchHandler(results, status) {
-  // --------- loop results and add marker ---------
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    var lat = results[0].geometry.location.lat();
-    var lng = results[0].geometry.location.lng();
-
-    map.setCenter({ lat: lat, lng: lng });
-
-    for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
     }
   }
 }
