@@ -94,7 +94,21 @@ function textSearchHandler(results, status) {
   }
 }
 
-// // ---- search term is optional ----
+function textSearchHandler(results, status) {
+  // --------- loop results and add marker ---------
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    var lat = results[0].geometry.location.lat();
+    var lng = results[0].geometry.location.lng();
+
+    map.setCenter({ lat: lat, lng: lng });
+
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+// ---- search term is optional ----
 function searchFoodInMap() {
   //TODO: grab title from user selected dish
   var selectedDishTitle = "macchiato";

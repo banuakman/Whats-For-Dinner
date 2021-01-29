@@ -2,7 +2,16 @@
 // - DOM Elements
 // - variables
 
+// Get the DOM elements to hide when initially loading page.
+var recipeImageContainer = document.getElementById("recipe-image-container");
+var displayMap = document.getElementById("display-map");
+var restaurantList = document.getElementById("restaurant-list");
 
+// When initially loading page, hide the map, recipe list, and
+// display map button.
+recipeImageContainer.classList.add("hide");
+displayMap.classList.add("hide");
+restaurantList.classList.add("hide");
 
 // Data ==================================================
 
@@ -11,6 +20,7 @@
 // Functions =============================================
 
 // AJAX Call Spoonacular API 
+var recipesObject;
 const spoonacularSettings = {
   async: true,
   crossDomain: true,
@@ -24,8 +34,9 @@ const spoonacularSettings = {
 };
 
 $.ajax(spoonacularSettings).done(function (response) {
-  console.log(response.recipes);
-  displayRandom(response.recipes);
+  recipesObject = response.recipes;
+  console.log(recipesObject);
+  //displayRandom(response.recipes);
 });
 
 // Display 3 Dishes with Title & Picture
@@ -64,8 +75,13 @@ function displayRecipe(recipes) {
 // When the user clicks the "What's for Dinner" button (on page 1)
 // call the function to generate three random dishes
 // and display them.
-$("#random-button").on("click", function () {
-  
+$("#whatsfordinner").on("click", function () {
+    
+    recipeImageContainer.classList.remove("hide");
+    //recipeImageContainer.textContent= "";
+
+    displayRandom(recipesObject);
+
 });
 
 // When the user clicks on the "Regenerate" button
