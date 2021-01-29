@@ -5,20 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's For Dinner</title>
-
     <!-- like to foundation cdn  -->
-    <link
-      rel="stylesheet"
-      href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
-    />
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
     <!-- link to css style sheet  -->
-    <link href="./assets/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/style.css"/>
     <!-- google maps api src  -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4CRiYoGBXcZ0BS3z8UK1lFFILHs3VOKQ&callback=initMap&libraries=places&v=weekly"
       defer
     ></script>
-
     <!-- script for jquery cdn. is one for foundation? -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -33,14 +28,13 @@
       <div class="row column text-center">
         <h1>What's For Dinner</h1>
         <h2>Choose Button</h2>
-        <button class="button large" type="button" id="cook">Cook</button>
-        <button class="button large" type="button" id="eatOut">Eat out</button>
+        <button class="button large" type="button" id="whatsfordinner">What's for Dinner?</button>
       </div>
     </div>
 
     <!-- container to update recipe displays  -->
-    <div class="container">
-      <ul class="recipes"></ul>
+    <div class="callout">
+      <div class="row recipes"></div>
     </div>
 
     <!-- display map button  -->
