@@ -3,7 +3,7 @@
   <head>
     <title>Whats For Dinner</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's For Dinner</title>
     <!-- like to foundation cdn  -->
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
@@ -22,27 +22,37 @@
     ></script>
   </head>
 
-  <!-- Initializing button for generating options  -->
+
   <body>
-    <div class="callout large" id="startOption">
+  
+    <!-- TOPBAR -->
+    <div class="top-bar large-12">
+      <div class="top-bar-left">
+          <h1 class="menu-text">What's for Dinner?</h1>
+      </div>
+    </div>
+
+
+  <!-- Callout for Random Genaration of 3 dishes  --> 
+    <div class="callout large-12" id="startOption">
       <div class="row column text-center">
-        <h1>What's For Dinner</h1>
-        <h2>Choose Button</h2>
+        <h3>What's For Dinner</h3>
+        <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis harum alias vel voluptate sed laborum consequuntur id, molestias eius!</h5>
         <button class="button large" type="button" id="whatsfordinner">What's for Dinner?</button>
       </div>
     </div>
 
-    <!-- container to update recipe displays  -->
-    <div class="callout">
+    <!-- 3 RANDOM RECIPIES APPEAR HERE -->
+    <div class="callout large-12">
       <div class="row recipes"></div>
     </div>
 
     <!-- display map button  -->
-    <div class="displayMap" style="margin: auto; width: 50%"></div>
+    <div class="callout displayMap large-12" style="margin: auto; width: 50%"></div>
     <div id="map" class="hide"></div>
 
     <!-- resteraunt container  -->
-    <div class="container">
+    <div class="callout large-12">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
         <input type="text" name="searchTerm" id="searchTerm" placeholder="Type in a dish name, cuisine, restaurant name, etc">
