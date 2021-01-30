@@ -4,6 +4,7 @@
 
 // Get the DOM elements to hide when initially loading page.
 var recipeImageContainer = document.getElementById("recipe-image-container");
+var startCallout = document.getElementById("startCallout");
 var displayMap = document.getElementById("display-map");
 var restaurantList = document.getElementById("restaurant-list");
 
@@ -75,12 +76,11 @@ function displayRecipe(recipes) {
 // call the function to generate three random dishes
 // and display them.
 $("#whatsfordinner").on("click", function () {
-
     recipeImageContainer.classList.remove("hide");
+    startCallout.classList.add("hide");
     // recipeImageContainer.textContent= "";
     displayRandom(recipesObject);
-
-});
+  });
 
 // When the user clicks on the "Regenerate" button
 // (on page 2) call a function to get three
