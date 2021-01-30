@@ -12,8 +12,8 @@ var restaurantList = document.getElementById("restaurant-list");
 // When initially loading page, hide the map, recipe list, and
 // display map button.
 recipeImageContainer.classList.add("hide");
-displayMap.classList.add("hide");
-restaurantList.classList.add("hide");
+// displayMap.classList.add("hide");
+// restaurantList.classList.add("hide");
 
 // Data ==================================================
 
