@@ -44,7 +44,7 @@ showMap.click(function () {
         console.log("request", request);
 
         service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, textSearchHandler);
+        service.textSearch(request, textSearchHandlerClick);
 
         searchFoodInMap();
         //----- gennerate function
@@ -71,16 +71,17 @@ showMap.click(function () {
   }
 });
 
-// // ------------- handle results ----------------------
-// function nearBySearchHandler(results, status) {
-//   // --------- loop results and add marker ---------
-//   if (status == google.maps.places.PlacesServiceStatus.OK) {
-//     for (var i = 0; i < results.length; i++) {
-//       console.log("places 1", results[i]);
-//       getPlaceID(map, results[i]);
-//     }
-//   }
-// }
+// Handle text search of click event if user enables location
+function textSearchHandlerClick(results, status, pos) {
+  // --------- loop results and add marker ---------
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    map.setCenter(pos);
+
+    for (var i = 0; i < results.length; i++) {
+      getPlaceID(map, results[i]);
+    }
+  }
+}
 
 function textSearchHandler(results, status) {
   // --------- loop results and add marker ---------
