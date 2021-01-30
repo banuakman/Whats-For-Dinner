@@ -3,7 +3,7 @@
   <head>
     <title>Whats For Dinner</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's For Dinner</title>
     <!-- like to foundation cdn  -->
     <link
@@ -25,33 +25,53 @@
     ></script>
   </head>
 
-  <!-- Initializing button for generating options  -->
   <body>
-    <div class="callout large" id="startOption">
-      <div class="row column text-center">
-        <h1>What's For Dinner</h1>
-        <h2>Choose Button</h2>
-        <button class="button large" type="button" id="whatsfordinner">
-          What's for Dinner?
-        </button>
+  
+    <!--TOPBAR =============================================================================== -->
+    <div class="top-bar large-12">
+      <div class="top-bar-left">
+          <h1 class="menu-text">What's for Dinner?</h1>
       </div>
     </div>
 
-    <!-- container to update recipe displays  -->
-    <div class="callout" id="recipe-image-container">
-      <div class="row recipes"></div>
+
+  <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
+    <div class="callout large-12" id="startCallout">
+      <div class="row column text-center">
+        <h3>What's For Dinner</h3>
+        <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis harum alias vel voluptate sed laborum consequuntur id, molestias eius!</h5>
+        <button class="button large" type="button" id="whatsfordinner">What's for Dinner?</button>
+      </div>
     </div>
 
-    <!-- display map button  -->
-    <div
-      class="displayMap"
-      id="display-map"
-      style="margin: auto; width: 50%"
-    ></div>
 
-    <div id="map" class="hide"></div>
+    <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
+    <div class="callout" id="recipe-image-container">
+      <div class="row recipes">
+        <!-- 3 Dishes with Title & Picture in 3 columns append here -->
+        <!-- display recipe button will append here in dropdown menu-->
+      </div>
+    </div>
 
-    <!-- resteraunt container  -->
+
+          <!--Display map button will be carried in the dropdownmenu-->
+          <!-- display map button  -->
+          <div class="displayMap" id="display-map" style="margin: auto; width: 50%"></div>
+          <div id="map" class="hide"></div>
+
+          <!-- Regenarate Buttons -->
+          <div class="regenerate text-center hideThisLater">
+            <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
+          </div>
+
+
+    <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
+    <div class="grid-x" id="recipe-details">
+        <!-- recipe details will append here-->
+    </div>
+
+
+    <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
     <div class="container" id="restaurant-list">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
@@ -76,6 +96,8 @@
         <!-- <li>rest 1</li> -->
       </ul>
     </div>
+
+
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
     <!-- google map for restaurant options  -->
