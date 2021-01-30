@@ -2,17 +2,16 @@
 var map;
 var service;
 var infoWindow;
-console.log("hello");
 
 // ---- build and place show map button ----
-showMap = $("<button>")
-  .attr("class", "button btn locate-btn")
-  .text("Display Map");
-$(".displayMap").append(showMap);
+showMap = $("#showMap");
+
 //------ click function initiates map build ---------
+//TODO refactor the code to: after user click what's for dinner button, we init the map but hiden, after user choose eat out, display map and restaurant list
 showMap.click(function () {
   //------ button click removes display none from map div -------------
   document.getElementById("map").classList.remove("hide");
+  document.getElementById("mapSearchForm").classList.remove("hide");
   // Try HTML5 geolocation.
   //-------- sends request to get location --------------
   if (navigator.geolocation) {
@@ -36,13 +35,17 @@ showMap.click(function () {
 
         // -------- places request -------
         var request = {
+          location: pos,
+          radius: '500',
           type: "restaurant",
-          query: "indian",
+          //TODO I tried a few search we may need to remove "with xxx(ingridient) part in the recipe title since google map does not give back results sometimes if the search term is too detailed"
+          query: localStorage.getItem("searchTitle"),
+
         };
         console.log("request", request);
 
         service = new google.maps.places.PlacesService(map);
-        service.textSearch(request, textSearchHandler);
+        service.nearbySearch(request, textSearchHandler);
 
         searchFoodInMap();
         //----- gennerate function
@@ -96,18 +99,21 @@ function textSearchHandler(results, status) {
 
 // ---- search term is optional ----
 function searchFoodInMap() {
-  //TODO: grab title from user selected dish
-  var selectedDishTitle = "macchiato";
-
-  var searchTerm = selectedDishTitle; //default is grabing from the selected dish title
+  var searchTerm = localStorage.getItem("searchTitle"); //default is grabing from the selected dish title
+  console.log(searchTerm);
   var searchLocation;
   var query;
 
   $("#mapSearchBtn").click(function (event) {
     event.preventDefault();
 
-    searchTerm = $("#searchTerm").val();
-    searchLocation = $("#searchLoc").val();
+    if($("#searchTerm").val()) {
+        searchTerm = $("#searchTerm").val();
+    }
+    if ($("#searchLoc").val()) {
+        searchLocation = $("#searchLoc").val();
+    }
+    
 
     query = searchLocation ? `${searchTerm} in ${searchLocation}` : searchTerm;
     //perform google search
@@ -138,7 +144,7 @@ function textSearch(input) {
 
 // ----- Gets Place Info and Intitiates Create marker ------------
 function getPlaceID(map, results) {
-  console.log("hello");
+//   console.log("hello");
   const request = {
     placeId: results.place_id,
     fields: ["name", "formatted_address", "place_id", "geometry", "website"],
