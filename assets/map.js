@@ -30,7 +30,7 @@ showMap.click(function () {
         // infoWindow = new google.maps.InfoWindow();
         map = new google.maps.Map(document.getElementById("map"), {
           center: pos,
-          zoom: 15,
+          zoom: 14,
         });
 
         // -------- places request -------
@@ -75,7 +75,7 @@ showMap.click(function () {
 function textSearchHandlerClick(results, status, pos) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    map.setCenter(pos);
+    // map.setCenter(pos);
 
     for (var i = 0; i < results.length; i++) {
       getPlaceID(map, results[i]);
