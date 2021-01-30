@@ -28,11 +28,11 @@
   <body>
   
     <!--TOPBAR =============================================================================== -->
-    <div class="top-bar large-12">
+    <nav class="top-bar large-12">
       <div class="top-bar-left">
           <h1 class="menu-text">What's for Dinner?</h1>
       </div>
-    </div>
+    </nav>
 
 
   <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
@@ -46,12 +46,14 @@
 
 
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
-    <div class="callout" id="recipe-image-container">
-      <div class="row recipes" id="recipes">
+  <div class="grid-container" width= %80>
+    <div class="row randomRecipes" id="recipe-image-container">
         <!-- 3 Dishes with Title & Picture in 3 columns append here -->
+
         <!-- display recipe button will append here in dropdown menu-->
       </div>
     </div>
+  </div>
 
 
           <!--Display map button will be carried in the dropdownmenu-->
@@ -101,10 +103,17 @@
     
 
           <!-- Regenarate Buttons -->
-    <div class="regenerate text-center hideThisLater">
+  <div class="grid-container"></div>
+    <div class="row text-center">
       <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
     </div>
+  </div>
 
+<!--TESTING A HOVER BUTTON HERE-->
+<button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
+<div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+  Just some junk that needs to be said. Or not. Your choice.
+</div>
 
     <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
     <div class="grid-x" id="recipe-details">
@@ -143,7 +152,7 @@
     <script src="assets/script.js"></script>
     <!-- google map for restaurant options  -->
     <script src="assets/map.js"></script>
-    <!-- jquery cdn. is one for foundation? -->
+    <!-- jquery cdn. is one for foundation -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
   </body>

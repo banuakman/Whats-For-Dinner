@@ -40,16 +40,20 @@ function generateRandomRecipes() {
   });
 }
 
-// Display 3 Dishes with Title & Picture
+
+// Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
-  $(".recipes").html("");
+    $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
+    var cellEl = $("<div>") 
+      .attr("class", "columns large-4");
+    var cardEl = $("<card>");
     var title = recipes[i].title;
-    var titleEl = $("<div>")
-      .attr("class", "columns large-4")
-      .html("<h4>" + title + "</h4>");
-    var imgEl = $("<img>")
+    var titleEl = $("<div>") 
+      .attr("class", "card-section randomDishCard") 
+      .html("<h5>" + title + "</h5>");
+    var imgEl = $("<img>") 
       .attr("src", recipes[i].image)
       .attr("alt", recipes[i].title);
     var aEl = $("<a>")
@@ -69,8 +73,8 @@ function displayRandom(recipes) {
       title
     );
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
-    titleEl.append(aEl).append(dropDown);
-    $(".recipes").append(titleEl);
+    cellEl.append(cardEl).append(titleEl).append(aEl).append(dropDown);
+    $(".randomRecipes").append(cellEl);
 
     //add event listnener to user choice for eat in or eat out
     inEl.click(function () {
