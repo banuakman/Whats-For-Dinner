@@ -40,20 +40,18 @@ function generateRandomRecipes() {
   });
 }
 
-
 // Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
-    $(".randomRecipes").html("");
+  $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
-    var cellEl = $("<div>") 
-      .attr("class", "columns large-4");
+    var cellEl = $("<div>").attr("class", "columns large-4");
     var cardEl = $("<card>");
     var title = recipes[i].title;
-    var titleEl = $("<div>") 
-      .attr("class", "card-section randomDishCard") 
+    var titleEl = $("<div>")
+      .attr("class", "card-section randomDishCard")
       .html("<h5>" + title + "</h5>");
-    var imgEl = $("<img>") 
+    var imgEl = $("<img>")
       .attr("src", recipes[i].image)
       .attr("alt", recipes[i].title);
     var aEl = $("<a>")
@@ -95,21 +93,32 @@ function displayRandom(recipes) {
   });
 }
 
-//TODO: call this function to dynamically generate contents in recipe details div (id = "recipe-details")
-// Display Recipe Details
+// --------Display Recipe Details (Johanna)
+// When the user clicks the recipe button from the selected image --- >
+// the current displays hides (id = dish-display)
+// and the new display shows (id = "recipe-details")
+
+// --------Display Restaurant Details  (Johanna)
+// When the user clicks the restaurant button from the selected image --- >
+// the current displays hides (id = dish-display)
+// and the new display shows (id = "map-container")
+
+// ---- Regenerate button initial display
+// --- it starts hidden
+// when whats for dinner button
+
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
   var title = singleRecipe.title;
-  var summary = singleRecipe.summary ;
-  var liEl = $("<li>").html(
-    "<h4>" + title + "</h4><p>" + summary + "</p>"
-    );
+  var summary = singleRecipe.summary;
+  var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .text(singleRecipe.sourceUrl);
   liEl.append(aEl);
   $("#recipe-details").append(liEl);
+  console.log(singleRecipe);
   //----------------------your code ends here-------------------------------
 }
 
@@ -129,6 +138,11 @@ $("#whatsfordinner").on("click", function () {
 // (on page 2) call a function to get three
 // different random recipes and display them.
 $("#regenerate-button").on("click", function () {
+  // // --------Regenerate button display function (Johanna)
+  // When the user clicks the regenerate button  --- >
+  // the current display hides
+  // the display display shows (id = dish-display)
+
   generateRandomRecipes();
 });
 
