@@ -46,7 +46,7 @@
 
 
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
-  <div class="grid-container" width= %80>
+  <div id="dish-display" class="grid-container" width= %80>
     <div class="row randomRecipes" id="recipe-image-container">
         <!-- 3 Dishes with Title & Picture in 3 columns append here -->
 
@@ -63,46 +63,8 @@
     </div>
 
 
-    <!-- map container with search bar, list of restaurants and map.  -->
-    <div class="container-map container" >
-      <div class="row">
-        <div id="mapSearchForm" class="hide columns medium-12">
-          <form id="mapSearchForm">
-            <label for="searchTerm">Search For: </label>
-            <input
-              type="text"
-              name="searchTerm"
-              id="searchTerm"
-              placeholder="Type in a dish name, cuisine, restaurant name, etc"
-            />
-            <label for="searchLoc">Where: </label>
-            <input
-              type="text"
-              name="searchLoc"
-              id="searchLoc"
-              placeholder="city, Neighborhood, etc"
-            />
-            <button type="button" id="mapSearchBtn" class="button">
-              Search Map
-            </button>
-        </div>
-      </div>
-       <div class="row">
-        <div id="map-list" class="column medium-4 hide">
-            <ul class="list-group rest-list">
-              <li class="list-group-item active" id="rest-list-header">Restaurants Nearby </li>
-              <!-- rest list goes here  -->
-            </ul>
-          </div>
-            <div class="column medium-6 map-col">
-            <div id="map" class="hide">
-            </div>
-        </div>
-      </div>
-    </div> 
-
     
-
+<!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
           <!-- Regenarate Buttons -->
   <div class="grid-container"></div>
     <div class="row text-center">
@@ -122,9 +84,11 @@
     </div>
 
 
+
+
     <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
      <!-- map container with search bar, list of restaurants and map.  -->
-    <div class="container-map container" >
+    <div id="map-container" class="container-map container" >
       <div class="row">
         <div id="mapSearchForm" class="hide columns medium-12">
           <form id="mapSearchForm">
