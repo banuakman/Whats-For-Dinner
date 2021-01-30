@@ -47,7 +47,7 @@
 
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
     <div class="callout" id="recipe-image-container">
-      <div class="row recipes">
+      <div class="row recipes" id="recipes">
         <!-- 3 Dishes with Title & Picture in 3 columns append here -->
         <!-- display recipe button will append here in dropdown menu-->
       </div>
@@ -56,23 +56,10 @@
 
           <!--Display map button will be carried in the dropdownmenu-->
           <!-- display map button  -->
-          <div class="displayMap" id="display-map" style="margin: auto; width: 50%"></div>
-          <div id="map" class="hide"></div>
-
-          <!-- Regenarate Buttons -->
-          <div class="regenerate text-center hideThisLater">
-            <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
-          </div>
-
-
-    <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
-    <div class="grid-x" id="recipe-details">
-        <!-- recipe details will append here-->
+    <div class="displayMap" id="display-map" style="margin: auto; width: 50%">
+          <button type="button" class="button btn locate-btn hide" id="showMap">Display Map</button>
     </div>
-
-
-    <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
-    <div class="container" id="restaurant-list">
+    <div id="mapSearchForm" class="hide">
       <form id="mapSearchForm">
         <label for="searchTerm">Search For: </label>
         <input
@@ -91,7 +78,43 @@
         <button type="button" id="mapSearchBtn" class="button">
           Search Map
         </button>
-      </form>
+    </div>
+    <div id="map" class="hide">
+    </div>
+
+          <!-- Regenarate Buttons -->
+    <div class="regenerate text-center hideThisLater">
+      <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
+    </div>
+
+
+    <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
+    <div class="grid-x" id="recipe-details">
+        <!-- recipe details will append here-->
+    </div>
+
+
+    <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
+    <div class="container" id="restaurant-list">
+      <!-- <form id="mapSearchForm">
+        <label for="searchTerm">Search For: </label>
+        <input
+          type="text"
+          name="searchTerm"
+          id="searchTerm"
+          placeholder="Type in a dish name, cuisine, restaurant name, etc"
+        />
+        <label for="searchLoc">Where: </label>
+        <input
+          type="text"
+          name="searchLoc"
+          id="searchLoc"
+          placeholder="city, Neighborhood, etc"
+        />
+        <button type="button" id="mapSearchBtn" class="button">
+          Search Map
+        </button>
+      </form> -->
       <ul class="restaurants">
         <!-- <li>rest 1</li> -->
       </ul>
