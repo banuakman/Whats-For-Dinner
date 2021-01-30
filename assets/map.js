@@ -183,6 +183,7 @@ function createMarker(place) {
   });
 }
 
+// --- create list function
 function createList(place) {
   $("#map-list").removeClass("hide");
   var restListEl = $("<li>")
