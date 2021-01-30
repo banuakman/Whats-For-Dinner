@@ -4,14 +4,15 @@
 
 // Get the DOM elements to hide when initially loading page.
 var recipeImageContainer = document.getElementById("recipe-image-container");
+var startCallout = document.getElementById("startCallout");
 var displayMap = document.getElementById("display-map");
 var restaurantList = document.getElementById("restaurant-list");
 
 // When initially loading page, hide the map, recipe list, and
 // display map button.
 recipeImageContainer.classList.add("hide");
-displayMap.classList.add("hide");
-restaurantList.classList.add("hide");
+// displayMap.classList.add("hide");
+// restaurantList.classList.add("hide");
 
 // Data ==================================================
 
@@ -75,8 +76,8 @@ function displayRecipe(recipes) {
 // and display them.
 $("#whatsfordinner").on("click", function () {
   recipeImageContainer.classList.remove("hide");
-  //recipeImageContainer.textContent= "";
-
+  startCallout.classList.add("hide");
+  // recipeImageContainer.textContent= "";
   displayRandom(recipesObject);
 });
 
