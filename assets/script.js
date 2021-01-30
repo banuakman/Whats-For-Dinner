@@ -12,8 +12,8 @@ var restaurantList = document.getElementById("restaurant-list");
 // When initially loading page, hide the map, recipe list, and
 // display map button.
 recipeImageContainer.classList.add("hide");
-// displayMap.classList.add("hide");
-// restaurantList.classList.add("hide");
+displayMap.classList.add("hide");
+restaurantList.classList.add("hide");
 
 // Data ==================================================
 
@@ -39,18 +39,21 @@ $.ajax(spoonacularSettings).done(function (response) {
   //displayRandom(response.recipes);
 });
 
-// Display 3 Dishes with Title & Picture
+// Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
   for (var i = 0; i < recipes.length; i++) {
-    var title = recipes[i].title;
-    var titleEl = $("<div>")
+    var cellEl = $("<div>")
       .attr("class", "columns large-4")
-      .html("<h4>" + title + "</h4>");
-    var imgEl = $("<img>")
-      .attr("src", recipes[i].image)
-      .text("alt", recipes[i].title);
-    titleEl.append(imgEl);
-    $(".recipes").append(titleEl);
+    var cardEl = $("<card>")
+    var title = recipes[i].title; 
+    var titleEl = $("<div>")
+      .attr("class", "card-section randomDishCard") 
+      .html("<h5>" + title + "</h5>"); 
+    var imgEl = $("<img>") 
+      .attr("src", recipes[i].image) 
+      .attr("alt", recipes[i].title);
+    cellEl.append(cardEl).append(titleEl).append(imgEl)
+    $(".randomRecipes").append(cellEl);
   }
 }
 
