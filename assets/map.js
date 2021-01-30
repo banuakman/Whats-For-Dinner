@@ -36,11 +36,10 @@ showMap.click(function () {
         // -------- places request -------
         var request = {
           location: pos,
-          radius: '500',
+          radius: "500",
           type: "restaurant",
           //TODO I tried a few search we may need to remove "with xxx(ingridient) part in the recipe title since google map does not give back results sometimes if the search term is too detailed"
           query: localStorage.getItem("searchTitle"),
-
         };
         console.log("request", request);
 
@@ -107,13 +106,12 @@ function searchFoodInMap() {
   $("#mapSearchBtn").click(function (event) {
     event.preventDefault();
 
-    if($("#searchTerm").val()) {
-        searchTerm = $("#searchTerm").val();
+    if ($("#searchTerm").val()) {
+      searchTerm = $("#searchTerm").val();
     }
     if ($("#searchLoc").val()) {
-        searchLocation = $("#searchLoc").val();
+      searchLocation = $("#searchLoc").val();
     }
-    
 
     query = searchLocation ? `${searchTerm} in ${searchLocation}` : searchTerm;
     //perform google search
@@ -144,7 +142,9 @@ function textSearch(input) {
 
 // ----- Gets Place Info and Intitiates Create marker ------------
 function getPlaceID(map, results) {
-//   console.log("hello");
+  //remove past list items
+  $(".rest-option").remove();
+  //   console.log("hello");
   const request = {
     placeId: results.place_id,
     fields: ["name", "formatted_address", "place_id", "geometry", "website"],
@@ -154,6 +154,7 @@ function getPlaceID(map, results) {
   service.getDetails(request, (place, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       createMarker(place);
+      createList(place);
       console.log("info place", place);
     }
   });
@@ -180,4 +181,19 @@ function createMarker(place) {
     );
     infoWindow.open(map, marker);
   });
+}
+
+// --- create list function
+function createList(place) {
+  $("#map-list").removeClass("hide");
+  var restListEl = $("<li>")
+    .attr("class", "list-group-item rest-option")
+    .html(
+      "<strong>" +
+        place.name +
+        "</strong>" +
+        "<br>" +
+        `<a href="${place.website}">link to website </a>`
+    );
+  $(".rest-list").append(restListEl);
 }
