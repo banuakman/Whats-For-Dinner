@@ -1,7 +1,23 @@
 #map {
   height: 400px;
-  width: 50%;
-  margin: auto;
+  width: 100%;
+  margin-right: 100px;
+}
+
+.map-col {
+  margin-right: 100px;
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.map-list {
+  margin-left: 50px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.rest-list {
+  margin-top: 45px;
 }
 
 .hide {
@@ -17,4 +33,50 @@
   padding-left: 5px;
   background-color:#CDD8D8;
   overflow: hidden;
+}
+#mapSearchForm {
+  margin: auto;
+  width: 65%;
+  position: relative;
+  right: 130px;
+}
+
+.list-group {
+  margin-bottom: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  background: #fefefe;
+  box-shadow: none;
+  overflow: hidden;
+  color: #0a0a0a;
+}
+
+.list-group > :last-child {
+  margin-bottom: 0;
+}
+
+.list-group-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.list-group-item > :last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.list-group-item.active {
+  color: #fefefe;
+  background-color: #1779ba;
+  border-color: 1px solid #1779ba;
+}
+
+.list-group-item:hover,
+.list-group-item:focus {
+  background-color: #e6e6e6;
+}
+
+.list-group-item:hover.active,
+.list-group-item:focus.active {
+  background-color: #1779ba;
 }

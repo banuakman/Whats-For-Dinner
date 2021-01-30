@@ -61,28 +61,46 @@
     <div class="displayMap" id="display-map" style="margin: auto; width: 50%">
           <button type="button" class="button btn locate-btn hide" id="showMap">Display Map</button>
     </div>
-    <div id="mapSearchForm" class="hide">
-      <form id="mapSearchForm">
-        <label for="searchTerm">Search For: </label>
-        <input
-          type="text"
-          name="searchTerm"
-          id="searchTerm"
-          placeholder="Type in a dish name, cuisine, restaurant name, etc"
-        />
-        <label for="searchLoc">Where: </label>
-        <input
-          type="text"
-          name="searchLoc"
-          id="searchLoc"
-          placeholder="city, Neighborhood, etc"
-        />
-        <button type="button" id="mapSearchBtn" class="button">
-          Search Map
-        </button>
-    </div>
-    <div id="map" class="hide">
-    </div>
+
+
+    <!-- map container with search bar, list of restaurants and map.  -->
+    <div class="container-map container" >
+      <div class="row">
+        <div id="mapSearchForm" class="hide columns medium-12">
+          <form id="mapSearchForm">
+            <label for="searchTerm">Search For: </label>
+            <input
+              type="text"
+              name="searchTerm"
+              id="searchTerm"
+              placeholder="Type in a dish name, cuisine, restaurant name, etc"
+            />
+            <label for="searchLoc">Where: </label>
+            <input
+              type="text"
+              name="searchLoc"
+              id="searchLoc"
+              placeholder="city, Neighborhood, etc"
+            />
+            <button type="button" id="mapSearchBtn" class="button">
+              Search Map
+            </button>
+        </div>
+      </div>
+       <div class="row">
+        <div id="map-list" class="column medium-4 hide">
+            <ul class="list-group rest-list">
+              <li class="list-group-item active" id="rest-list-header">Restaurants Nearby </li>
+              <!-- rest list goes here  -->
+            </ul>
+          </div>
+            <div class="column medium-6 map-col">
+            <div id="map" class="hide"></div>
+        </div>
+      </div>
+    </div> 
+
+    
 
           <!-- Regenarate Buttons -->
   <div class="grid-container"></div>
