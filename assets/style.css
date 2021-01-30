@@ -2,26 +2,31 @@
 #map {
   height: 400px;
   width: 100%;
-  margin-right: 100px;
 }
 
 /* the column the map is in  */
 .map-col {
-  margin-right: 100px;
-  margin-bottom: 100px;
   margin-top: 40px;
+  /* float: left; */
+}
+
+#map-container {
+  margin-top: 60px;
+  margin-left: 100px;
+  height: 600px;
 }
 
 /* the row the list for restaurants are in  */
-.map-list {
-  margin-left: 50px;
-  margin-bottom: 100px;
-  margin-top: 100px;
+#map-list {
+  width: 50%;
+  float: right;
+  margin-left: 40px;
 }
 
 /* the ul tag the list is in  */
 .rest-list {
   margin-top: 45px;
+  width: 50%;
 }
 
 .hide {
@@ -41,10 +46,8 @@
 
 /* search for map  */
 #mapSearchForm {
-  margin: auto;
-  width: 65%;
-  position: relative;
-  right: 130px;
+  margin: 10px;
+  width: 500px;
 }
 
 /* general list-group  for ul elements */
@@ -59,7 +62,7 @@
 }
 
 .list-group > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 /* general li item class  */
