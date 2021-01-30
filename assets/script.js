@@ -43,7 +43,7 @@ function generateRandomRecipes() {
 
 // Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
-    $(".recipes").html("");
+    $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
     var cellEl = $("<div>") 
