@@ -35,14 +35,17 @@ showMap.click(function () {
 
         // -------- places request -------
         var request = {
+          location: pos,
+          radius: '500',
           type: "restaurant",
           //TODO I tried a few search we may need to remove "with xxx(ingridient) part in the recipe title since google map does not give back results sometimes if the search term is too detailed"
           query: localStorage.getItem("searchTitle"),
+
         };
         console.log("request", request);
 
         service = new google.maps.places.PlacesService(map);
-        service.textSearch(request, textSearchHandler);
+        service.nearbySearch(request, textSearchHandler);
 
         searchFoodInMap();
         //----- gennerate function
