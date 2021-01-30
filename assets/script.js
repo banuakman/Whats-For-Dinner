@@ -35,7 +35,7 @@ function generateRandomRecipes() {
 
   $.ajax(spoonacularSettings).done(function (response) {
     recipesObject = response.recipes;
-    // console.log(recipesObject);
+    console.log(recipesObject);
     displayRandom(response.recipes);
   });
 }
@@ -101,15 +101,15 @@ function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
   var title = singleRecipe.title;
-  var instructions = singleRecipe.instructions;
+  var summary = singleRecipe.summary ;
   var liEl = $("<li>").html(
-    "<h4>" + title + "</h4><p>" + instructions + "</p>"
-  );
+    "<h4>" + title + "</h4><p>" + summary + "</p>"
+    );
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .text(singleRecipe.sourceUrl);
   liEl.append(aEl);
-  $(".recipes").append(liEl);
+  $("#recipe-details").append(liEl);
   //----------------------your code ends here-------------------------------
 }
 
