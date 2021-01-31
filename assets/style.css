@@ -5,6 +5,11 @@
   margin: 10px;
 }
 
+.map-col {
+  position: relative;
+  left: 65px;
+}
+
 /* the column the map is in  */
 /* .map-col {
   /* margin-right: 10px;
@@ -18,9 +23,11 @@
 
 /* the row the list for restaurants are in  */
 #map-list {
-  width: 50%;
+  width: 600px;
   float: right;
   margin-left: 40px;
+  position: absolute;
+  left: 750px;
 }
 
 #list-cont {
@@ -52,6 +59,8 @@
 #mapSearchForm {
   margin: 10px;
   width: 500px;
+  position: relative;
+  left: 50px;
 }
 
 /* general list-group  for ul elements */
@@ -82,17 +91,17 @@
 
 /* active style for list group item - using it as a header for list  */
 .list-group-item.active {
-  color: #fefefe;
-  background-color: #1779ba;
-  border-color: 1px solid #1779ba;
+  color: black;
+  background-color: #cdd8d8;
+  border-color: 1px solid #cdd8d8;
 }
 
 .list-group-item:hover,
 .list-group-item:focus {
-  background-color: #e6e6e6;
+  background-color: #cdd8d8;
 }
 
 .list-group-item:hover.active,
 .list-group-item:focus.active {
-  background-color: #1779ba;
+  background-color: #cdd8d8;
 }
