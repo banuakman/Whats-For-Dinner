@@ -35,7 +35,7 @@
     </nav>
 
 
-  <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
+    <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
     <div class="callout large-12" id="startCallout">
       <div class="row column text-center">
         <h3>What's For Dinner</h3>
@@ -44,45 +44,46 @@
       </div>
     </div>
 
-
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
-  <div id="dish-display" class="grid-container" width= %80>
-    <div class="row randomRecipes" id="recipe-image-container">
+    <div id="dish-display" class="grid-container" width= %75>
+      <div class="row">
+        <div class="columns large-12 randomRecipeInfo">
+          <h5>Here are some suggestions. Click on the meal that you want to try !</h5>
+          <p id=infoline>If you do not like those, you can always ask for</p>
+          <button class="button small" type="button" id="regenerate-button">new offers</button>
+        </div>
+      </div>
+      <div class="row randomRecipes" id="recipe-image-container">
         <!-- 3 Dishes with Title & Picture in 3 columns append here -->
 
         <!-- display recipe button will append here in dropdown menu-->
       </div>
     </div>
-  </div>
 
 
-          <!--Display map button will be carried in the dropdownmenu-->
-          <!-- display map button  -->
+
+      <!--Display map button will be carried in the dropdownmenu-->
+      <!-- display map button  -->
     <div class="displayMap" id="display-map" style="margin: auto; width: 50%">
           <button type="button" class="button btn locate-btn hide" id="showMap">Display Map</button>
     </div>
 
 
     
-<!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
-          <!-- Regenarate Buttons -->
-  <div class="grid-container"></div>
-    <div class="row text-center">
-      <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
+    <!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
+        <!-- Regenarate Buttons -->
+    <div class="grid-container"></div>
+      <div class="row text-center">
+        <button class="button large" type="button" id="regenerate-button">BACK BUTTON for other sections</button>
+      </div>
     </div>
-  </div>
 
-<!--TESTING A HOVER BUTTON HERE-->
-<button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
-<div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
-  Just some junk that needs to be said. Or not. Your choice.
-</div>
 
-    <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
+
+  <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
     <div class="grid-x" id="recipe-details">
         <!-- recipe details will append here-->
     </div>
-
 
 
 
@@ -134,5 +135,7 @@
     <!-- jquery cdn. is one for foundation -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+
   </body>
+  
 </html>

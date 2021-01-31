@@ -3,14 +3,14 @@
 // - variables
 
 // Get the DOM elements to hide when initially loading page.
-var recipeImageContainer = document.getElementById("recipe-image-container");
+var randomRecipeContainer = document.getElementById("dish-display");
 var startCallout = document.getElementById("startCallout");
 var displayMap = document.getElementById("display-map");
 var restaurantList = document.getElementById("restaurant-list");
 
 // When initially loading page, hide the map, recipe list, and
 // display map button.
-// recipeImageContainer.classList.add("hide");
+randomRecipeContainer.classList.add("hide");
 // displayMap.classList.add("hide");
 // restaurantList.classList.add("hide");
 
@@ -28,7 +28,7 @@ function generateRandomRecipes() {
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=dinner,maincourse,sidedish",
     method: "GET",
     headers: {
-      "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+      "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
@@ -46,14 +46,18 @@ function displayRandom(recipes) {
 
   for (var i = 0; i < recipes.length; i++) {
     var cellEl = $("<div>").attr("class", "columns large-4");
-    var cardEl = $("<card>");
+    var cardEl = $("<div>")
+      .attr("class", "card randomRecipeCard");
+    cellEl.append(cardEl)
+
     var title = recipes[i].title;
     var titleEl = $("<div>")
-      .attr("class", "card-section randomDishCard")
+      .attr("class", "card-section randomCardTitle")
       .html("<h5>" + title + "</h5>");
     var imgEl = $("<img>")
       .attr("src", recipes[i].image)
-      .attr("alt", recipes[i].title);
+      .attr("alt", recipes[i].title)
+      .attr("class", "randomRecipePicture");
     var aEl = $("<a>")
       .attr("class", "recipe-click")
       .attr("href", "#")
@@ -71,7 +75,7 @@ function displayRandom(recipes) {
       title
     );
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
-    cellEl.append(cardEl).append(titleEl).append(aEl).append(dropDown);
+    cardEl.append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
 
     //add event listnener to user choice for eat in or eat out
@@ -128,7 +132,7 @@ function displayRecipeDetail(singleRecipe) {
 // call the function to generate three random dishes
 // and display them.
 $("#whatsfordinner").on("click", function () {
-  recipeImageContainer.classList.remove("hide");
+  randomRecipeContainer.classList.remove("hide");
   startCallout.classList.add("hide");
   //generate and display 3 recipes
   generateRandomRecipes();

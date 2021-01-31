@@ -1,3 +1,50 @@
+/* General  */
+body {
+  background-color: #f3f6f6;
+  color: #1B2625
+}
+
+.button {
+  background-color: #F57F20;
+}
+
+.button:hover {
+  background-color: #84371B;
+}
+
+/* Random Recipe cards  */
+
+.randomRecipeInfo{
+  display: block;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#infoline{
+  line-height: 10px;
+  padding-top: 10px;
+} 
+
+.randomRecipes{
+  padding: 15px;
+}
+
+.randomCardTitle {
+  display: block;
+  width: 100%;
+  height: 65px;
+  text-align: center;
+  color:white;
+  padding: 5px;
+  background-color: #5F7986;
+  overflow: hidden;
+}
+
+.randomRecipePicture {
+  display: block;
+  object-fit: cover;
+}
+
 /* the actual map  */
 #map {
   height: 400px;
@@ -26,17 +73,6 @@
 
 .hide {
   display: none;
-}
-
-.randomDishCard {
-  display: block;
-  width: 100%;
-  height: 65px;
-  text-align: center;
-  padding-right: 5px;
-  padding-left: 5px;
-  background-color: #cdd8d8;
-  overflow: hidden;
 }
 
 /* search for map  */
