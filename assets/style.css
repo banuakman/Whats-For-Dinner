@@ -2,15 +2,15 @@
 #map {
   height: 400px;
   width: 100%;
+  margin: 10px;
 }
 
 /* the column the map is in  */
-.map-col {
-  margin-top: 40px;
-  /* float: left; */
-}
-
-#map-container {
+/* .map-col {
+  /* margin-right: 10px;
+  float: left;
+} */
+*/ #map-container {
   margin-top: 60px;
   margin-left: 100px;
   height: 600px;
