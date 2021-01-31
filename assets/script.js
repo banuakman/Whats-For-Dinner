@@ -39,11 +39,15 @@ function generateRandomRecipes() {
     recipesObject = response.recipes;
     console.log(recipesObject);
     displayRandom(response.recipes);
+
+
   });
 }
 
 // Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
+  hideUnhideDiv("dish-display");
+
   $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
@@ -90,8 +94,10 @@ function displayRandom(recipes) {
       //store title in localstorage for map.js to grab
       localStorage.setItem("searchTitle", $(this).attr("data-title"));
 
-      // Unhide the map-container div and hide the recipe-details div.
-      unhideMapContainer();
+      // Unhide the map-container div and hide the recipe-details element,
+      // and the three dish element.
+      hideUnhideDiv("map-container");
+
       $("#showMap").trigger("click");
     });
   }
@@ -137,16 +143,39 @@ window.onclick = function (event) {
 };
 
 // --------Display Recipe Details (Johanna)
-// When the user clicks the recipe button from the selected image --- >
-// the current displays hides (id = dish-display)
-// and the new display shows (id = "recipe-details")
-function unhideRecipeDetails() {
-  // Hide the dish.
+// Hide or unhide sections depending on what was clicked.
+// Parameter divToUnhide is the element ID to unhide.
+function hideUnhideDiv(divToUnhide) {
+  // Get the three elements: the three dish display element,
+  // the recipe detail element, and the map container element.
   var dishDisplay = document.getElementById("dish-display");
-  dishDisplay.classList.add("hide");
-
   var recipeDetails = document.getElementById("recipe-details");
-  recipeDetails.classList.remove("hide");
+  var mapContainer = document.getElementById("map-container");
+
+  // Only one of these elements should display at the same time.
+  // If one is being displayed then the other two should be hidden.
+  switch (divToUnhide) {
+    case "dish-display":
+      dishDisplay.classList.remove("hide");
+      recipeDetails.classList.add("hide");
+      mapContainer.classList.add("hide");
+      break;
+    case "recipe-details": 
+      recipeDetails.classList.remove("hide");
+      dishDisplay.classList.add("hide");
+      mapContainer.classList.add("hide");
+      break;
+    case "map-container": 
+      mapContainer.classList.remove("hide");
+      dishDisplay.classList.add("hide");
+      recipeDetails.classList.add("hide");
+
+      $("#dishTitle").text(
+        "Searching Results For:" + " " + localStorage.getItem("searchTitle")
+      );
+      break;
+  };
+ // recipeDetails.classList.remove("hide");
 }
 
 // --------Display Restaurant Details  (Johanna)
@@ -176,8 +205,13 @@ function unhideMapContainer() {
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
-  // Unhide the recipe-details div and hide the map-container div.
-  unhideRecipeDetails();
+
+  // Unhide the recipe-details element, hide the map-container div and the the three dish element.
+  hideUnhideDiv("recipe-details");
+
+  $(".recipeDetailsPic").empty();
+  $(".recipeDetailsSummary").empty();
+
   var imgEl = $("<img>")
     .attr("src", singleRecipe.image)
     .attr("alt", singleRecipe.title)
@@ -208,7 +242,7 @@ $("#whatsfordinner").on("click", function () {
   generateRandomRecipes();
 });
 
-// When the user clicks on the "Regenerate" button
+// When the user clicks on the "Offer Me New Dishes" button
 // (on page 2) call a function to get three
 // different random recipes and display them.
 $("#regenerate-button").on("click", function () {
@@ -216,6 +250,7 @@ $("#regenerate-button").on("click", function () {
   // When the user clicks the regenerate button  --- >
   // the current display hides
   // the display display shows (id = dish-display)
+  // Remove the recipe picture and detail before adding again.
 
   generateRandomRecipes();
 });
