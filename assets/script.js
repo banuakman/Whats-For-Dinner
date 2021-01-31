@@ -58,7 +58,7 @@ function displayRandom(recipes) {
     var imgEl = $("<img>")
       .attr("src", recipes[i].image)
       .attr("alt", recipes[i].title)
-      .attr("class", "randomRecipePicture");
+      .attr("class", "randomRecipePicture dropBtn");
     var aEl = $("<a>")
       .attr("class", "recipe-click")
       .attr("href", "#")
@@ -75,6 +75,7 @@ function displayRandom(recipes) {
     var outEl = $(
       "<a href='# class='showRestaurant'>Find A Restaurant Near You</a>"
     ).attr("data-title", title);
+
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
     cardEl.append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
@@ -96,12 +97,14 @@ function displayRandom(recipes) {
   }
 
   //add event listener to images to show the drop down menu
-  $(".recipe-click").on("click", function () {
+  $(".recipe-click").on("click", function (event) {
     var dropDown = $(this).next();
+    console.log(dropDown);
     if (dropDown.is(":hidden")) {
       dropDown.show();
-    } else if (!".recipe-click") {
-      dropDown.hide();
+    } else if (!event.target.matches(".recipe-click")) {
+      console.log("click");
+      $(".dropdown-content").hide();
     } else {
       dropDown.hide();
     }
@@ -125,6 +128,13 @@ function displayRandom(recipes) {
     // });
   });
 }
+
+//hide drop down
+window.onclick = function (event) {
+  if (!event.target.matches(".dropBtn")) {
+    $(".dropdown-content").hide();
+  }
+};
 
 // --------Display Recipe Details (Johanna)
 // When the user clicks the recipe button from the selected image --- >
@@ -182,7 +192,6 @@ function displayRecipeDetail(singleRecipe) {
     .html(singleRecipe.sourceUrl);
   detailsEl.append(aEl);
   $(".recipeDetailsSummary").append(detailsEl);
-  //----------------------your code ends here-------------------------------
 }
 
 //----------------------your code ends here-------------------------------
