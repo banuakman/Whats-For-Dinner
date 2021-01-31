@@ -12,7 +12,7 @@
 } */
 */ #map-container {
   margin-top: 60px;
-  margin-left: 100px;
+  margin-left: 150px;
   height: 600px;
 }
 
@@ -21,6 +21,10 @@
   width: 50%;
   float: right;
   margin-left: 40px;
+}
+
+#list-cont {
+  margin-right: 70px;
 }
 
 /* the ul tag the list is in  */

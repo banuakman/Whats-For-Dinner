@@ -87,7 +87,6 @@ function displayRandom(recipes) {
     });
   }
 
-  $("#showMap").trigger("click");
   //add event listener to images to show the drop down menu
   $(".recipe-click").on("click", function () {
     $(this).next().show(); //this is the <a> tag and dropdown is next sibling node/element
