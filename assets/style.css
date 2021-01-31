@@ -2,26 +2,47 @@
 #map {
   height: 400px;
   width: 100%;
-  margin-right: 100px;
+  margin: 10px;
+}
+
+.map-col {
+  position: relative;
+  left: 65px;
 }
 
 /* the column the map is in  */
-.map-col {
-  margin-right: 100px;
-  margin-bottom: 100px;
-  margin-top: 40px;
+/* .map-col {
+  /* margin-right: 10px;
+  float: left;
+} */
+*/ #map-container {
+  margin-top: 60px;
+  margin-left: 150px;
+  height: 600px;
 }
 
 /* the row the list for restaurants are in  */
-.map-list {
-  margin-left: 50px;
-  margin-bottom: 100px;
-  margin-top: 100px;
+#map-list {
+  width: 600px;
+  float: right;
+  margin-left: 40px;
+  position: absolute;
+  left: 650px;
+}
+
+#list-cont {
+  margin-right: 70px;
 }
 
 /* the ul tag the list is in  */
 .rest-list {
   margin-top: 45px;
+  width: 50%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#rest-list-header {
+  padding: 15px;
 }
 
 .hide {
@@ -41,10 +62,10 @@
 
 /* search for map  */
 #mapSearchForm {
-  margin: auto;
-  width: 65%;
+  margin: 10px;
+  width: 500px;
   position: relative;
-  right: 130px;
+  left: 50px;
 }
 
 /* general list-group  for ul elements */
@@ -59,7 +80,7 @@
 }
 
 .list-group > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 /* general li item class  */
@@ -75,17 +96,48 @@
 
 /* active style for list group item - using it as a header for list  */
 .list-group-item.active {
-  color: #fefefe;
-  background-color: #1779ba;
-  border-color: 1px solid #1779ba;
+  color: black;
+  background-color: #cdd8d8;
+  border-color: 1px solid #cdd8d8;
 }
 
 .list-group-item:hover,
-.list-group-item:focus {
-  background-color: #e6e6e6;
+.list-group-item:focus,
+a:hover,
+a:focus {
+  background-color: #ebccb3;
 }
 
 .list-group-item:hover.active,
 .list-group-item:focus.active {
-  background-color: #1779ba;
+  background-color: #cdd8d8;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f3b684;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #cdd8d8;
+}
+
+hr {
+  margin: 0px;
+}
+
+.button {
+  background: #e9893a;
 }
