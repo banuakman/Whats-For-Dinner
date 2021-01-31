@@ -66,7 +66,7 @@
     
 <!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
           <!-- Regenarate Buttons -->
-  <div class="grid-container"></div>
+  <div id="regenerate-container" class="grid-container"></div>
     <div class="row text-center">
       <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
     </div>
@@ -86,11 +86,11 @@
 
 
 
-    <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
-     <!-- map container with search bar, list of restaurants and map.  -->
-    <div id="map-container" class="container-map container" >
+     <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
+    <!-- map container with search bar, list of restaurants and map.  -->
+    <div id="map-container" class="container-map grid-container">
       <div class="row">
-        <div id="mapSearchForm" class="hide columns medium-12">
+        <div id="mapSearchForm" class="hide small-9 medium- large-9 columns">
           <form id="mapSearchForm">
             <label for="searchTerm">Search For: </label>
             <input
@@ -110,22 +110,24 @@
               Search Map
             </button>
           </form>
+          <div class="row">
+            <div class=" small-12 medium-12 large-12 column map-col">
+              <div id="map" class="hide"></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div id="map-list" class="column medium-4 hide">
+        <div id="map-list" class="small-3 medium-3 large-3 columns hide">
+          <div id="list-cont">
             <ul class="list-group rest-list">
-              <li class="list-group-item active" id="rest-list-header">Restaurants Nearby </li>
+              <li class="list-group-item active" id="rest-list-header">
+                Restaurants Nearby
+              </li>
               <!-- rest list goes here  -->
             </ul>
-          </div>
-            <div class="column medium-6 map-col">
-            <div id="map" class="hide">
-            </div>
+          </div> 
         </div>
       </div>
-    </div> 
-
+    </div>
 
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>
