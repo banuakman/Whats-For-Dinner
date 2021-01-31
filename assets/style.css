@@ -1,11 +1,7 @@
 /* General  */
 body {
   background-color: #f3f6f6;
-  color: #1B2625
-}
-
-p {
-  font-size: 14px;
+  color: #1b2625;
 }
 
 .button {
@@ -13,23 +9,23 @@ p {
 }
 
 .button:hover {
-  background-color: #84371B;
+  background-color: #84371b;
 }
 
 /* Random Recipe cards  */
 
-.randomRecipeInfo{
+.randomRecipeInfo {
   display: block;
   text-align: center;
   padding-top: 30px;
 }
 
-#infoline{
+#infoline {
   line-height: 10px;
   padding-top: 10px;
-} 
+}
 
-.randomRecipes{
+.randomRecipes {
   padding: 15px;
 }
 
@@ -38,9 +34,9 @@ p {
   width: 100%;
   height: 65px;
   text-align: center;
-  color:white;
+  color: white;
   padding: 5px;
-  background-color: #5F7986;
+  background-color: #5f7986;
   overflow: hidden;
 }
 
@@ -48,17 +44,6 @@ p {
   display: block;
   object-fit: cover;
 }
-
-.regenerate-button {
-  padding: 15px;
-}
-
-
-/* Recipe Details */
-.recipeDetails {
-  padding: 30px;
-}
-
 
 /* the actual map  */
 #map {
@@ -77,10 +62,8 @@ p {
   /* margin-right: 10px;
   float: left;
 } */
-*/ #map-container {
+#map-container {
   margin-top: 60px;
-  margin-left: 150px;
-  height: 600px;
 }
 
 /* the row the list for restaurants are in  */
@@ -88,8 +71,8 @@ p {
   width: 600px;
   float: right;
   margin-left: 40px;
-  position: absolute;
-  left: 650px;
+  position: relative;
+  left: 150px;
 }
 
 #list-cont {
@@ -191,4 +174,18 @@ hr {
 
 .button {
   background: #e9893a;
+}
+
+#regenerate-button {
+  position: relative;
+  left: -100px;
+  top: 899px;
+
+  top: 100px;
+}
+
+/* map dish title  */
+
+#dishTile {
+  hight: 20;
 }
