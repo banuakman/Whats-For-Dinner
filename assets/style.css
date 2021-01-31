@@ -45,6 +45,10 @@ body {
   object-fit: cover;
 }
 
+.regenerate-button {
+  padding: 15px;
+}
+
 /* the actual map  */
 #map {
   height: 400px;

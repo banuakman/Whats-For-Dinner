@@ -47,7 +47,7 @@ function displayRandom(recipes) {
   $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
-    var cellEl = $("<div>").attr("class", "columns large-4");
+    var cellEl = $("<div>").attr("class", "columns large-4 medium-4");
     var cardEl = $("<div>")
       .attr("class", "card randomRecipeCard");
     cellEl.append(cardEl)
