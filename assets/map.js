@@ -7,7 +7,7 @@ var infoWindow;
 showMap = $("#showMap");
 
 //------ click function initiates map build ---------
-//TODO refactor the code to: after user click what's for dinner button, we init the map but hiden, after user choose eat out, display map and restaurant list
+//TODO refactor the code to: after user click what's for dinner button, we init the map but hidden, after user choose eat out, display map and restaurant list
 showMap.click(function () {
   //------ button click removes display none from map div -------------
   document.getElementById("map").classList.remove("hide");
