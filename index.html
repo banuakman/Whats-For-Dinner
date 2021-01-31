@@ -35,7 +35,7 @@
 
 
     <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
-    <div class="callout large-12" id="startCallout">
+    <div class="callout large-12 medium-12" id="startCallout">
       <div class="row column text-center">
         <h3>What's For Dinner</h3>
         <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis harum alias vel voluptate sed laborum consequuntur id, molestias eius!</h5>
@@ -46,7 +46,7 @@
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
     <div id="dish-display" class="grid-container" width= %75>
       <div class="row ">
-        <div class="columns large-12 randomRecipeInfo">
+        <div class="columns large-12 medium-12 randomRecipeInfo">
           <h5>Here are some suggestions. Click on the meal that you want to try !</h5>
           <p id=infoline>If you do not like those, you can always ask for</p>
           <button class="button small" type="button" id="regenerate-button">new offers</button>
@@ -68,13 +68,22 @@
     </div>
 
 
+  <!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
+    <!-- Regenarate Buttons -->
+    <div class="grid-container regenerate-button"></div>
+      <div class="row text-center">
+        <button class="button" type="button" id="regenerate-button">Offer me New Dishes</button>
+      </div>
+    </div>    
+
+
   <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
     <div class="grid-container recipeDetails" width= %75 id="recipe-details">
       <!-- recipe details will append here-->
       <div class="row">
-          <div class="columns large-4 recipeDetailsPic">
+          <div class="columns large-4 medium-4 recipeDetailsPic">
           </div>
-          <div class="columns large-8 recipeDetailsSummary">
+          <div class="columns large-8  medium-8 recipeDetailsSummary">
           </div>
       </div>
     </div>
@@ -124,15 +133,6 @@
       </div>
     </div>
 
-    
-<!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
-    <!-- Regenarate Buttons -->
-    <div class="grid-container"></div>
-      <div class="row text-center">
-        <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
-      </div>
-    </div>
-      
 
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>

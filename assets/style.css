@@ -4,6 +4,10 @@ body {
   color: #1b2625;
 }
 
+p {
+  font-size: 14px;
+}
+
 .button {
   background-color: #e9893a;
 }
@@ -44,6 +48,17 @@ body {
   display: block;
   object-fit: cover;
 }
+
+.regenerate-button {
+  padding: 15px;
+}
+
+
+/* Recipe Details */
+.recipeDetails {
+  padding: 30px;
+}
+
 
 /* the actual map  */
 #map {

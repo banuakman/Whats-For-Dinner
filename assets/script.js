@@ -28,9 +28,9 @@ function generateRandomRecipes() {
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=dinner,maincourse,sidedish",
     method: "GET",
     headers: {
-      //   "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
-      "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
-      //   "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
+    //  "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+    //  "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
+      "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
@@ -47,9 +47,16 @@ function displayRandom(recipes) {
   $(".randomRecipes").html("");
 
   for (var i = 0; i < recipes.length; i++) {
+<<<<<<< HEAD
     var cellEl = $("<div>").attr("class", "columns large-4");
     var cardEl = $("<div>").attr("class", "card randomRecipeCard");
     cellEl.append(cardEl);
+=======
+    var cellEl = $("<div>").attr("class", "columns large-4 medium-4");
+    var cardEl = $("<div>")
+      .attr("class", "card randomRecipeCard");
+    cellEl.append(cardEl)
+>>>>>>> main
 
     var title = recipes[i].title;
     var titleEl = $("<div>")
@@ -175,12 +182,18 @@ function displayRecipeDetail(singleRecipe) {
 
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
-  var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
+  var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .html(singleRecipe.sourceUrl);
+<<<<<<< HEAD
   liEl.append(aEl);
   $(".recipeDetailsSummary").append(liEl);
+=======
+  detailsEl.append(aEl);
+  $(".recipeDetailsSummary").append(detailsEl);
+  //----------------------your code ends here-------------------------------
+>>>>>>> main
 }
 
 //----------------------your code ends here-------------------------------
