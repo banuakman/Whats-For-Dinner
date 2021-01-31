@@ -4,6 +4,10 @@ body {
   color: #1B2625
 }
 
+p {
+  font-size: 14px;
+}
+
 .button {
   background-color: #e9893a;
 }

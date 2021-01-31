@@ -172,12 +172,12 @@ function displayRecipeDetail(singleRecipe) {
   
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
-  var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
+  var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .html(singleRecipe.sourceUrl);
-  liEl.append(aEl);
-  $(".recipeDetailsSummary").append(liEl);
+  detailsEl.append(aEl);
+  $(".recipeDetailsSummary").append(detailsEl);
   //----------------------your code ends here-------------------------------
 }
 
