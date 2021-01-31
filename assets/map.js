@@ -104,7 +104,11 @@ function textSearchHandlerClick(results, status) {
   // --------- loop results and add marker ---------
 
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    // map.setCenter({ lat: lat, lng: lng });
+    var lat = results[0].geometry.location.lat();
+    var lng = results[0].geometry.location.lng();
+
+    map.setCenter({ lat: lat, lng: lng });
+    map.setZoom(10);
 
     for (var i = 0; i < results.length; i++) {
       getPlaceID(map, results[i]);
