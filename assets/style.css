@@ -53,6 +53,13 @@ p {
   padding: 15px;
 }
 
+
+/* Recipe Details */
+.recipeDetails {
+  padding: 30px;
+}
+
+
 /* the actual map  */
 #map {
   height: 400px;

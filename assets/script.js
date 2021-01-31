@@ -28,9 +28,9 @@ function generateRandomRecipes() {
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=dinner,maincourse,sidedish",
     method: "GET",
     headers: {
-    //   "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
-      "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
-    //   "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
+    //  "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+    //  "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
+      "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
