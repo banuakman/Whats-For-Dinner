@@ -35,7 +35,7 @@
 
 
     <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
-    <div class="callout large-12" id="startCallout">
+    <div class="callout large-12 medium-12" id="startCallout">
       <div class="row column text-center">
         <h3>What's For Dinner</h3>
         <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis harum alias vel voluptate sed laborum consequuntur id, molestias eius!</h5>
@@ -46,7 +46,7 @@
     <!--CALLOUT TO DISPLAY 3 RANDOM DISH OPTION================================================== -->
     <div id="dish-display" class="grid-container" width= %75>
       <div class="row ">
-        <div class="columns large-12 randomRecipeInfo">
+        <div class="columns large-12 medium-12 randomRecipeInfo">
           <h5>Here are some suggestions. Click on the meal that you want to try !</h5>
            <!--<p id=infoline>If you do not like those, you can always ask for</p>
          <button class="button small" type="button" id="new-offers">new offers</button>-->
@@ -67,14 +67,23 @@
           <button type="button" class="button btn locate-btn hide" id="showMap">Display Map</button>
     </div>
 
+        
+<!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
+    <!-- Regenarate Buttons -->
+    <!--<div class="grid-container"></div>
+      <div class="row text-center">
+        <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
+      </div>
+    </div>-->
+
 
   <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
     <div class="grid-container recipeDetails" width= %75 id="recipe-details">
       <!-- recipe details will append here-->
       <div class="row">
-          <div class="columns large-4 recipeDetailsPic">
+          <div class="columns large-4 medium-4 recipeDetailsPic">
           </div>
-          <div class="columns large-8 recipeDetailsSummary">
+          <div class="columns large-8 medium-8 recipeDetailsSummary">
           </div>
       </div>
     </div>
@@ -83,8 +92,9 @@
      <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
     <!-- map container with search bar, list of restaurants and map.  -->
     <div id="map-container" class="container-map grid-container">
+      <h4 id="dishTitle"></h4>
       <div class="row">
-        <div id="mapSearchForm" class="hide small-8 medium-8 large-8 columns">
+        <div id="mapSearchForm" class="hide small-12 medium-8 large-8 columns">
           <form class="map-col">
             <label for="searchTerm">Search For: </label>
             <input
@@ -110,7 +120,7 @@
             </div>
           </div>
         </div>
-        <div id="map-list" class="small-4 medium-4 large-4 columns hide">
+        <div id="map-list" class="small-12 medium-4 large-4 columns hide">
           <div>
             <ul class="list-group rest-list">
               <li class="list-group-item active" id="rest-list-header">
