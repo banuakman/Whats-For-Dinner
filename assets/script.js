@@ -61,15 +61,14 @@ function displayRandom(recipes) {
 
     //add drop down options of eating in or eating out to each recipe card but don't display unless image is clicked
     //TODO add class and styles for drop down options
-    var dropDown = $("<div>");
-    var inEl = $("<a href='#' class='showRecipe'>Cook in</a>").attr(
+    var dropDown = $("<div>").attr("class", "dropdown-content");
+    var inEl = $("<a href='#' class='showRecipe'>Get The Recipe</a>").attr(
       "data-index",
       i
     );
-    var outEl = $("<a href='# class='showRestaurant'>Eat out</a>").attr(
-      "data-title",
-      title
-    );
+    var outEl = $(
+      "<a href='# class='showRestaurant'>Find A Restaurant Near You</a>"
+    ).attr("data-title", title);
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
     cellEl.append(cardEl).append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
