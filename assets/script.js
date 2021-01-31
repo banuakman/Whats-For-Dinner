@@ -28,9 +28,9 @@ function generateRandomRecipes() {
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=dinner,maincourse,sidedish",
     method: "GET",
     headers: {
-    //   "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
+      //   "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
       "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
-    //   "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
+      //   "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
@@ -97,29 +97,43 @@ function displayRandom(recipes) {
   $(".recipe-click").on("click", function () {
     var dropDown = $(this).next();
     if (dropDown.is(":hidden")) {
-        dropDown.show();
+      dropDown.show();
     } else {
-        dropDown.hide();
+      dropDown.hide();
     }
-     //this is the <a> tag and dropdown is next sibling node/element
+    //this is the <a> tag and dropdown is next sibling node/element
     var selectedIndex = $(this).attr("data-index");
 
     //toggle the rest of cards: if it's shown, then hide the rest; if it's hidden, then show the rest
-    $(".recipe-click").each(function(index, element){
-        var cardIndex = index;
-        if (cardIndex != selectedIndex) { 
-            var cardEl = $(element).parent(); //get the whole card instead of the clickable image 
+    // $(".recipe-click").each(function (index, element) {
+    //   var cardIndex = index;
+    //   if (cardIndex != selectedIndex) {
+    //     var cardEl = $(element).parent(); //get the whole card instead of the clickable image
 
-            // if cards
-            if (cardEl.is(":hidden")) {
-                cardEl.show();
-            } else {
-                cardEl.hide();
-            } 
-        }
-    });
+    //     // if cards
+    //     if (cardEl.is(":hidden")) {
+    //       cardEl.show();
+    //     } else {
+    //       cardEl.hide();
+    //     }
+    //   }
+    // });
   });
 }
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function () {
+  // if (!event.target.matches("<img>")) {
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.is("show")) {
+      openDropdown.hide();
+    }
+  }
+  // }
+};
 
 // --------Display Recipe Details (Johanna)
 // When the user clicks the recipe button from the selected image --- >
@@ -132,9 +146,7 @@ function unhideRecipeDetails() {
 
   var recipeDetails = document.getElementById("recipe-details");
   recipeDetails.classList.remove("hide");
-
 }
-
 
 // --------Display Restaurant Details  (Johanna)
 // When the user clicks the restaurant button from the selected image --- >
@@ -148,7 +160,6 @@ function unhideMapContainer() {
   // Display the map-container div.
   var mapContainer = document.getElementById("map-container");
   mapContainer.classList.remove("hide");
-
 }
 
 // ---- Regenerate button initial display
@@ -158,7 +169,7 @@ function unhideMapContainer() {
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
-  
+
   // Unhide the recipe-details div and hide the map-container div.
   unhideRecipeDetails();
 
