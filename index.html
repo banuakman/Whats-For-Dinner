@@ -67,14 +67,14 @@
           <button type="button" class="button btn locate-btn hide" id="showMap">Display Map</button>
     </div>
 
-
-  <!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
+        
+<!-- TO DO: Orient button on bottom of every page// only hide on title page  -->
     <!-- Regenarate Buttons -->
-    <div class="grid-container regenerate-button"></div>
+    <div class="grid-container"></div>
       <div class="row text-center">
-        <button class="button" type="button" id="regenerate-button">Offer me New Dishes</button>
+        <button class="button large" type="button" id="regenerate-button">Offer me New Dishes</button>
       </div>
-    </div>    
+    </div>
 
 
   <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
@@ -83,7 +83,7 @@
       <div class="row">
           <div class="columns large-4 medium-4 recipeDetailsPic">
           </div>
-          <div class="columns large-8  medium-8 recipeDetailsSummary">
+          <div class="columns large-8 medium-8 recipeDetailsSummary">
           </div>
       </div>
     </div>
@@ -92,9 +92,9 @@
      <!-- CONTAINER for RESTAURANT SEARCH ===================================================== -->
     <!-- map container with search bar, list of restaurants and map.  -->
     <div id="map-container" class="container-map grid-container">
-      <h3 id="dishTitle" ></h3>
+      <h4 id="dishTitle"></h4>
       <div class="row">
-        <div id="mapSearchForm" class="hide small-8 medium-8 large-8 columns">
+        <div id="mapSearchForm" class="hide small-12 medium-8 large-8 columns">
           <form class="map-col">
             <label for="searchTerm">Search For: </label>
             <input
@@ -120,7 +120,7 @@
             </div>
           </div>
         </div>
-        <div id="map-list" class="small-4 medium-4 large-4 columns hide">
+        <div id="map-list" class="small-12 medium-4 large-4 columns hide">
           <div>
             <ul class="list-group rest-list">
               <li class="list-group-item active" id="rest-list-header">
@@ -133,6 +133,8 @@
       </div>
     </div>
 
+
+      
 
     <!-- link to scirpt.js  -->
     <script src="assets/script.js"></script>

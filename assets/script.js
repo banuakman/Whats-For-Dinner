@@ -5,13 +5,13 @@
 // Get the DOM elements to hide when initially loading page.
 var randomRecipeContainer = document.getElementById("dish-display");
 var startCallout = document.getElementById("startCallout");
-var displayMap = document.getElementById("display-map");
+var displayMap = document.getElementById("map-container");
 var restaurantList = document.getElementById("restaurant-list");
 
 // When initially loading page, hide the map, recipe list, and
 // display map button.
 randomRecipeContainer.classList.add("hide");
-// displayMap.classList.add("hide");
+displayMap.classList.add("hide");
 // restaurantList.classList.add("hide");
 
 // Data ==================================================
@@ -151,6 +151,7 @@ function unhideMapContainer() {
   // Display the map-container div.
   var mapContainer = document.getElementById("map-container");
   mapContainer.classList.remove("hide");
+  document.getElementById("dishTitle").classList.remove("hide");
 
   $("#dishTitle").text(
     "Searching Results For:" + " " + localStorage.getItem("searchTitle")
