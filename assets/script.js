@@ -86,7 +86,11 @@ function displayRandom(recipes) {
 
       // Unhide the map-container div and hide the recipe-details div.
       unhideMapContainer();
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 40642a529cc09506be8017cdae735260a73cd7ed
       $("#showMap").trigger("click");
     });
   }
@@ -110,6 +114,10 @@ function unhideRecipeDetails() {
   recipeDetails.classList.remove("hide");
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 40642a529cc09506be8017cdae735260a73cd7ed
 
 // --------Display Restaurant Details  (Johanna)
 // When the user clicks the restaurant button from the selected image --- >
@@ -133,6 +141,10 @@ function unhideMapContainer() {
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 40642a529cc09506be8017cdae735260a73cd7ed
   // Unhide the recipe-details div and hide the map-container div.
   unhideRecipeDetails();
 
