@@ -83,6 +83,10 @@ function displayRandom(recipes) {
     outEl.click(function () {
       //store title in localstorage for map.js to grab
       localStorage.setItem("searchTitle", $(this).attr("data-title"));
+
+      // Unhide the map-container div and hide the recipe-details div.
+      unhideMapContainer();
+      
       $("#showMap").trigger("click");
     });
   }
@@ -95,13 +99,32 @@ function displayRandom(recipes) {
 
 // --------Display Recipe Details (Johanna)
 // When the user clicks the recipe button from the selected image --- >
-// the current displays hides (id = dish-display)
+// the current display hides (id = dish-display)
 // and the new display shows (id = "recipe-details")
+function unhideRecipeDetails() {
+  // Hide the dish.
+  var dishDisplay = document.getElementById("dish-display");
+  dishDisplay.classList.add("hide");
+
+  var recipeDetails = document.getElementById("recipe-details");
+  recipeDetails.classList.remove("hide");
+
+}
 
 // --------Display Restaurant Details  (Johanna)
 // When the user clicks the restaurant button from the selected image --- >
 // the current displays hides (id = dish-display)
 // and the new display shows (id = "map-container")
+function unhideMapContainer() {
+  // Hide the dish-display div.
+  var dishDisplay = document.getElementById("dish-display");
+  dishDisplay.classList.add("hide");
+
+  // Display the map-container div.
+  var mapContainer = document.getElementById("map-container");
+  mapContainer.classList.remove("hide");
+
+}
 
 // ---- Regenerate button initial display
 // --- it starts hidden
@@ -110,6 +133,9 @@ function displayRandom(recipes) {
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
+  // Unhide the recipe-details div and hide the map-container div.
+  unhideRecipeDetails();
+
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
   var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
