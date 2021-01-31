@@ -30,13 +30,12 @@ showMap.click(function () {
         // infoWindow = new google.maps.InfoWindow();
         map = new google.maps.Map(document.getElementById("map"), {
           center: pos,
-          zoom: 14,
+          zoom: 13,
         });
 
         // -------- places request -------
         var request = {
           location: pos,
-          radius: "500",
           type: "restaurant",
           //TODO I tried a few search we may need to remove "with xxx(ingridient) part in the recipe title since google map does not give back results sometimes if the search term is too detailed"
           query: localStorage.getItem("searchTitle"),
@@ -75,7 +74,7 @@ showMap.click(function () {
 function textSearchHandlerClick(results, status, pos) {
   // --------- loop results and add marker ---------
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    // map.setCenter(pos);
+    // map.setCenter({ lat: lat, lng: lng });
 
     for (var i = 0; i < results.length; i++) {
       getPlaceID(map, results[i]);
