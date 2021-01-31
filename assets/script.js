@@ -28,7 +28,9 @@ function generateRandomRecipes() {
       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=3&tags=dinner,maincourse,sidedish",
     method: "GET",
     headers: {
+    //   "x-rapidapi-key": "130332a6ccmshd9ecdd5f1b0a4d7p12e090jsnf616f928de59",
       "x-rapidapi-key": "aec4b3ea07msha3618e894254591p168662jsnb96bf9a67318",
+    //   "x-rapidapi-key": "33cd4a2c49mshf76dee9bb71dc52p1dff08jsn917a329ffdff",
       "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
@@ -61,19 +63,17 @@ function displayRandom(recipes) {
     var aEl = $("<a>")
       .attr("class", "recipe-click")
       .attr("href", "#")
+      .attr("data-index", i)
       .append(imgEl); //need this to make image become clickable
 
     //add drop down options of eating in or eating out to each recipe card but don't display unless image is clicked
     //TODO add class and styles for drop down options
-    var dropDown = $("<div>");
-    var inEl = $("<a href='#' class='showRecipe'>Cook in</a>").attr(
-      "data-index",
-      i
-    );
-    var outEl = $("<a href='# class='showRestaurant'>Eat out</a>").attr(
-      "data-title",
-      title
-    );
+    var dropDown = $("<div>").attr("class", "dropdown-content");
+    var inEl = $("<a href='#' class='showRecipe'>Get The Recipe</a>")
+      .attr("data-index",i);
+    var outEl = $(
+      "<a href='# class='showRestaurant'>Find A Restaurant Near You</a>"
+      ).attr("data-title", title);
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
     cardEl.append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
@@ -90,14 +90,36 @@ function displayRandom(recipes) {
 
       // Unhide the map-container div and hide the recipe-details div.
       unhideMapContainer();
-
       $("#showMap").trigger("click");
     });
   }
 
   //add event listener to images to show the drop down menu
   $(".recipe-click").on("click", function () {
-    $(this).next().show(); //this is the <a> tag and dropdown is next sibling node/element
+    var dropDown = $(this).next();
+    if (dropDown.is(":hidden")) {
+        dropDown.show();
+    } else {
+        dropDown.hide();
+    }
+  
+    //this is the <a> tag and dropdown is next sibling node/element
+    var selectedIndex = $(this).attr("data-index");
+
+    //toggle the rest of cards: if it's shown, then hide the rest; if it's hidden, then show the rest
+    $(".recipe-click").each(function(index, element){
+        var cardIndex = index;
+        if (cardIndex != selectedIndex) { 
+            var cardEl = $(element).parent(); //get the whole card instead of the clickable image 
+
+            // if cards
+            if (cardEl.is(":hidden")) {
+                cardEl.show();
+            } else {
+                cardEl.hide();
+            } 
+        }
+    });
   });
 }
 
