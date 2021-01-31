@@ -157,22 +157,27 @@ function unhideMapContainer() {
 // --- it starts hidden
 // when whats for dinner button
 
+
+  // DISPLAY RECIPE DETAILS
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
-  
   // Unhide the recipe-details div and hide the map-container div.
   unhideRecipeDetails();
-
+  var imgEl = $("<img>")
+    .attr("src", singleRecipe.image)
+    .attr("alt", singleRecipe.title)
+    .attr("class", "singleRecipePicture");
+  $(".recipeDetailsPic").append(imgEl);
+  
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
   var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
-    .text(singleRecipe.sourceUrl);
+    .html(singleRecipe.sourceUrl);
   liEl.append(aEl);
-  $("#recipe-details").append(liEl);
-  console.log(singleRecipe);
+  $(".recipeDetailsSummary").append(liEl);
   //----------------------your code ends here-------------------------------
 }
 
