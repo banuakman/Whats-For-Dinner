@@ -178,7 +178,8 @@ hr {
 
 #regenerate-button {
   position: relative;
-  left: px;
+  left: -100px;
+  top: 899px;
 
   top: 100px;
 }
