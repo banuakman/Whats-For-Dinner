@@ -48,9 +48,8 @@ function displayRandom(recipes) {
 
   for (var i = 0; i < recipes.length; i++) {
     var cellEl = $("<div>").attr("class", "columns large-4");
-    var cardEl = $("<div>")
-      .attr("class", "card randomRecipeCard");
-    cellEl.append(cardEl)
+    var cardEl = $("<div>").attr("class", "card randomRecipeCard");
+    cellEl.append(cardEl);
 
     var title = recipes[i].title;
     var titleEl = $("<div>")
@@ -69,11 +68,13 @@ function displayRandom(recipes) {
     //add drop down options of eating in or eating out to each recipe card but don't display unless image is clicked
     //TODO add class and styles for drop down options
     var dropDown = $("<div>").attr("class", "dropdown-content");
-    var inEl = $("<a href='#' class='showRecipe'>Get The Recipe</a>")
-      .attr("data-index",i);
+    var inEl = $("<a href='#' class='showRecipe'>Get The Recipe</a>").attr(
+      "data-index",
+      i
+    );
     var outEl = $(
       "<a href='# class='showRestaurant'>Find A Restaurant Near You</a>"
-      ).attr("data-title", title);
+    ).attr("data-title", title);
     dropDown.append(inEl).append($("<hr>")).append(outEl).hide();
     cardEl.append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
@@ -99,13 +100,12 @@ function displayRandom(recipes) {
     var dropDown = $(this).next();
     if (dropDown.is(":hidden")) {
       dropDown.show();
+    } else if (!".recipe-click") {
+      dropDown.hide();
     } else {
       dropDown.hide();
     }
-<<<<<<< HEAD
-=======
-  
->>>>>>> main
+
     //this is the <a> tag and dropdown is next sibling node/element
     var selectedIndex = $(this).attr("data-index");
 
@@ -125,20 +125,6 @@ function displayRandom(recipes) {
     // });
   });
 }
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function () {
-  // if (!event.target.matches("<img>")) {
-  var dropdowns = document.getElementsByClassName("dropdown-content");
-  var i;
-  for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
-    if (openDropdown.is("show")) {
-      openDropdown.hide();
-    }
-  }
-  // }
-};
 
 // --------Display Recipe Details (Johanna)
 // When the user clicks the recipe button from the selected image --- >
@@ -165,21 +151,20 @@ function unhideMapContainer() {
   // Display the map-container div.
   var mapContainer = document.getElementById("map-container");
   mapContainer.classList.remove("hide");
+
+  $("#dishTitle").text(
+    "Searching Results For:" + " " + localStorage.getItem("searchTitle")
+  );
 }
 
 // ---- Regenerate button initial display
 // --- it starts hidden
 // when whats for dinner button
 
-
-  // DISPLAY RECIPE DETAILS
+// DISPLAY RECIPE DETAILS
 function displayRecipeDetail(singleRecipe) {
   //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
   //-----------------------your code should replace this part--------------------/
-<<<<<<< HEAD
-
-=======
->>>>>>> main
   // Unhide the recipe-details div and hide the map-container div.
   unhideRecipeDetails();
   var imgEl = $("<img>")
@@ -187,7 +172,7 @@ function displayRecipeDetail(singleRecipe) {
     .attr("alt", singleRecipe.title)
     .attr("class", "singleRecipePicture");
   $(".recipeDetailsPic").append(imgEl);
-  
+
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
   var liEl = $("<li>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
@@ -196,8 +181,9 @@ function displayRecipeDetail(singleRecipe) {
     .html(singleRecipe.sourceUrl);
   liEl.append(aEl);
   $(".recipeDetailsSummary").append(liEl);
-  //----------------------your code ends here-------------------------------
 }
+
+//----------------------your code ends here-------------------------------
 
 // User Interaction =====================================
 

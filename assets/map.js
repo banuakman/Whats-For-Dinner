@@ -2,42 +2,44 @@
 var map;
 var service;
 var infoWindow;
-var defaultLocation = localStorage.getItem("lastLocation")? JSON.parse(localStorage.getItem("lastLocation")): {lat: 40.7728051, lng: -73.9796312}; //default value: if last location saved in localStorage, then last location; otherwise set it to New York as a default (if you want test geolocation works, change the default value here to a different city)
+var defaultLocation = localStorage.getItem("lastLocation")
+  ? JSON.parse(localStorage.getItem("lastLocation"))
+  : { lat: 40.7728051, lng: -73.9796312 }; //default value: if last location saved in localStorage, then last location; otherwise set it to New York as a default (if you want test geolocation works, change the default value here to a different city)
 
 //----initialize map build when page load (Synchronous Loading) but hidden---
 //-------- sends request to get location --------------
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        //--------- receives lat and lon and puts them in pos variable --------
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-        // ----------  generates new map with coordinates from pos -----------
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: pos,
-            zoom: 13,
-          });
-        currentLocation = pos;
-        localStorage.setItem("lastLocation", JSON.stringify(pos));
-        }, (error) => {
-            // ----------  generates map with default location -----------
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: defaultLocation,
-                zoom: 13,
-              });
-            console.log(error);
-        });
-}  else {
-    // ----------  generates map with default location -----------
-    map = new google.maps.Map(document.getElementById("map"), {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      //--------- receives lat and lon and puts them in pos variable --------
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+      // ----------  generates new map with coordinates from pos -----------
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: pos,
+        zoom: 13,
+      });
+      currentLocation = pos;
+      localStorage.setItem("lastLocation", JSON.stringify(pos));
+    },
+    (error) => {
+      // ----------  generates map with default location -----------
+      map = new google.maps.Map(document.getElementById("map"), {
         center: defaultLocation,
         zoom: 13,
       });
+      console.log(error);
+    }
+  );
+} else {
+  // ----------  generates map with default location -----------
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: defaultLocation,
+    zoom: 13,
+  });
 }
-   
-
 
 // ---- select the showMap button ----
 showMap = $("#showMap");
@@ -72,7 +74,7 @@ showMap.click(function () {
 
         service = new google.maps.places.PlacesService(map);
         service.textSearch(request, textSearchHandlerClick);
-        
+
         searchFoodInMap();
       },
       () => {
@@ -86,20 +88,21 @@ showMap.click(function () {
     searchFoodInMap();
   }
 
-//   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(
-//       browserHasGeolocation
-//         ? "Error: The Geolocation service failed."
-//         : "Error: Your browser doesn't support geolocation."
-//     );
-//     infoWindow.open(map);
-//   }
+  //   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  //     infoWindow.setPosition(pos);
+  //     infoWindow.setContent(
+  //       browserHasGeolocation
+  //         ? "Error: The Geolocation service failed."
+  //         : "Error: Your browser doesn't support geolocation."
+  //     );
+  //     infoWindow.open(map);
+  //   }
 });
 
 // Handle text search of click event if user enables location
 function textSearchHandlerClick(results, status) {
   // --------- loop results and add marker ---------
+
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     // map.setCenter({ lat: lat, lng: lng });
 
@@ -155,6 +158,8 @@ function textSearch(input) {
     query: input,
     type: "restaurant",
   };
+  $("#dishTitle").empty();
+  $("#dishTitle").text("Searching Results for:" + " " + input);
 
   service.textSearch(textSearchRequest, textSearchHandler);
 }
@@ -205,6 +210,7 @@ function createMarker(place) {
 // --- create list function
 function createList(place) {
   $("#map-list").removeClass("hide");
+
   var restListEl = $("<li>")
     .attr("class", "list-group-item rest-option")
     .html(
