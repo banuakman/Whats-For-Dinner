@@ -3,7 +3,7 @@ var map;
 var service;
 var infoWindow;
 
-// ---- build and place show map button ----
+// ---- select the showMap button ----
 showMap = $("#showMap");
 
 //------ click function initiates map build ---------
@@ -128,7 +128,7 @@ function textSearch(input) {
     Center will set once we have result from the search and set the first result location as the map center
     */
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
+    zoom: 13,
   });
   service = new google.maps.places.PlacesService(map);
   //---------------text search --------------------
