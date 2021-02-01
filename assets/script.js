@@ -113,19 +113,7 @@ function displayRandom(recipes) {
     //only show the drop down of selected card
     var dropDown = $(this).next();
 
-    // Display the drop-down box if it is hidden.
-    if (dropDown.is(":hidden")) {
-      dropDown.show();
-
-    // Hide the dropdown menu if this was not an image click event for a dish.
-    } else if (!event.target.matches(".recipe-click")) {
-      $(".dropdown-content").hide();
-    } else {
-      dropDown.hide();
-    }
-
     // This is the <a> tag and dropdown is next sibling node/element.
-    var selectedIndex = $(this).attr("data-index");
     if (dropDown.is(":hidden")) {
       dropDown.show();
     }
@@ -229,7 +217,7 @@ function displayRecipeDetail(singleRecipe) {
 
 // User Interaction =====================================
 
-// When the user clicks the "What's for Dinner" button 
+// When the user clicks the "What's for Dinner" button
 // call the function to generate three random dishes
 // and display them.
 $("#whatsfordinner").on("click", function () {
