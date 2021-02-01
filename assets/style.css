@@ -14,7 +14,7 @@ body {
 
 #regenerate-button {
   position: relative;
-  top: 900px;
+  left: 25px;
 }
 
 /* Random Recipe cards  */
@@ -48,12 +48,6 @@ body {
 .randomRecipeCard {
   display: block;
   object-fit: cover;
-}
-
-/* recipe details */
-
-#recipe-details {
-    padding: 50px;
 }
 
 /* the actual map  */
@@ -203,8 +197,14 @@ hr {
   background-color: #eeeeee;
 }
 
+/* recipe details */
+
+#recipe-details {
+  padding: 40px;
+}
+
 #titleRecipe {
-  margin-top: 80px;
+  margin-top: 30px;
   margin-bottom: 40px;
   padding: 0px 15px;
   font-weight: bold;
