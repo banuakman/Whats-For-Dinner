@@ -2,8 +2,7 @@
 body {
   background-color: #f3f6f6;
   color: #1b2625;
-  font-family: font-family: 'Acme', sans-serif;
-
+  font-family: "Acme", sans-serif;
 }
 
 .button {
@@ -229,6 +228,7 @@ hr {
     position: relative;
     left: 235px;
   }
+
   #dishTitle {
     left: 35px;
     width: 85%;
@@ -246,7 +246,6 @@ hr {
   #regenerate-button {
     position: relative;
     left: 12px;
-    
   }
 }
 
@@ -271,7 +270,7 @@ hr {
 #whatsfordinner {
   padding: 20px;
   margin-bottom: 40px;
-  font-weight: bold
+  font-weight: bold;
 }
 
 #dinnerPitch {
