@@ -14,11 +14,7 @@ body {
 
 #regenerate-button {
   position: relative;
-  top: 900px;
-}
-
-.top-bar {
-  background-color: #1b2625;
+  left: 25px;
 }
 
 /* Random Recipe cards  */
@@ -201,10 +197,21 @@ hr {
   background-color: #eeeeee;
 }
 
+/* recipe details */
+
+#recipe-details {
+  padding: 30px;
+}
+
 #titleRecipe {
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 0px 15px;
   font-weight: bold;
   font-size: 2.5rem;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #1b2625;
 }
