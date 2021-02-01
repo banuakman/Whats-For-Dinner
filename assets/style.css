@@ -208,3 +208,43 @@ hr {
   font-weight: bold;
   font-size: 2.5rem;
 }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #mapSearchForm {
+    position: relative;
+    left: -82px;
+    width: 400px
+  }
+
+  .map-background {
+    background-color: #f3f6f6;
+  }
+
+  #map-list {
+    position: relative;
+    left: 235px;
+}
+  }
+  #dishTitle {
+    left: 35px;
+    width: 85%;
+  }
+
+  list-group {
+    margin-bottom: 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    background: #fefefe;
+    box-shadow: none;
+    overflow: hidden;
+    color: #0a0a0a;
+  }
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
