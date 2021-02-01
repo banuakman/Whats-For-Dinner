@@ -210,6 +210,7 @@ function displayRecipeDetail(singleRecipe) {
 
   $(".recipeDetailsPic").empty();
   $(".recipeDetailsSummary").empty();
+  $("#recipeTitle").empty();
 
   var imgEl = $("<img>")
     .attr("src", singleRecipe.image)

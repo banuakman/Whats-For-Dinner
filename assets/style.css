@@ -241,6 +241,8 @@ hr {
     color: #0a0a0a;
   }
 }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+}
 
 /* Top Bar */
 .top-bar {
