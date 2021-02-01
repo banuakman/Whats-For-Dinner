@@ -35,7 +35,10 @@ Live URL https://benrgross.github.io/Whats-For-Dinner/
 
 ## Team
 
-Banu Akman - https://github.com/banuakman
-Ben Gross - https://github.com/benrgross
-Johanna Leal - https://github.com/johannaleal
-Angelina Ma - https://github.com/angelinama
+* Banu Akman - https://github.com/banuakman
+
+* Ben Gross - https://github.com/benrgross
+
+* Johanna Leal - https://github.com/johannaleal
+
+* Angelina Ma - https://github.com/angelinama
