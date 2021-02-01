@@ -108,6 +108,9 @@ function displayRandom(recipes) {
 
   // Add event listener to images to show the drop down menu.
   $(".recipe-click").on("click", function (event) {
+    //hide all the dropdown
+    $(".dropdown-content").hide();
+    //only show the drop down of selected card
     var dropDown = $(this).next();
 
     // Display the drop-down box if it is hidden.
@@ -123,6 +126,12 @@ function displayRandom(recipes) {
 
     // This is the <a> tag and dropdown is next sibling node/element.
     var selectedIndex = $(this).attr("data-index");
+    if (dropDown.is(":hidden")) {
+      dropDown.show();
+    }
+
+    //this is the <a> tag and dropdown is next sibling node/element
+    // var selectedIndex = $(this).attr("data-index");
 
     //toggle the rest of cards: if it's shown, then hide the rest; if it's hidden, then show the rest
     // $(".recipe-click").each(function (index, element) {
@@ -166,12 +175,12 @@ function hideUnhideDiv(divToUnhide) {
       recipeDetails.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "recipe-details": 
+    case "recipe-details":
       recipeDetails.classList.remove("hide");
       dishDisplay.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "map-container": 
+    case "map-container":
       mapContainer.classList.remove("hide");
       dishDisplay.classList.add("hide");
       recipeDetails.classList.add("hide");
@@ -181,7 +190,12 @@ function hideUnhideDiv(divToUnhide) {
       );
       break;
   };
- // recipeDetails.classList.remove("hide");
+  if ($("#dish-display").hasClass("hide")) {   
+    $("#back-button").removeClass("hide");
+  } else {
+    $("#back-button").addClass("hide");
+  }
+
 }
 
 // DISPLAY RECIPE DETAILS
@@ -202,14 +216,14 @@ function displayRecipeDetail(singleRecipe) {
     .attr("class", "singleRecipePicture");
   $(".recipeDetailsPic").append(imgEl);
 
-  // Add the recipe summary.
-  var title = singleRecipe.title;
+  var title = $("<h4>").text(singleRecipe.title).attr("id", "titleRecipe");
   var summary = singleRecipe.summary;
-  var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
+  var detailsEl = $("<p>").html("<p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .html(singleRecipe.sourceUrl);
   detailsEl.append(aEl);
+  $("#recipeTitle").append(title);
   $(".recipeDetailsSummary").append(detailsEl);
 }
 
@@ -231,3 +245,21 @@ $("#whatsfordinner").on("click", function () {
 $("#regenerate-button").on("click", function () {
   generateRandomRecipes();
 });
+
+// // When the user clicks on the Submit button
+// // (on page 2) call a function to get the user's
+// // choices on page 2 get data based on their choices.
+// $("#submit-button").on("click", function () {});
+
+// // When the user clicks on the Back button
+// // (on page 2 - restaurants or recipes) call a
+// // function to go back to the list of random
+// // choices (page 2).
+$("#back-button").on("click", function () {
+    $(this).addClass("hide");
+    hideUnhideDiv("dish-display");
+});
+
+// When the user clicks an image of a recipe
+// on the recipe list page (page 3) call a
+// function to display the recipe detail page.

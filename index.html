@@ -29,11 +29,11 @@
 
   <body>
     <!--TOPBAR =============================================================================== -->
-    <nav class="top-bar large-12">
+    <div class="top-bar" id="topbar-logo">
       <div class="top-bar-left">
-        <h1 class="menu-text">What's for Dinner?</h1>
+        <a href="#"><img src="./assets/logo.png" alt="" /></a>
       </div>
-    </nav>
+    </div>
 
     <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
     <div class="callout large-12 medium-12" id="startCallout">
@@ -60,6 +60,10 @@
         <!-- Display Recipe button will append here in dropdown menu -->
       </div>
     </div>
+    <div class="row column">
+      <button class="button hide" type="button" id="back-button" style="margin:20px auto 20px auto">back to dishes</button>
+    </div>
+    
 
     <!-- Display map button will be carried in the dropdown menu -->
     <!-- Display map button  -->
@@ -69,7 +73,8 @@
 
   <!--CONTAINER TO DISPLAY RECIPE DETAILS ==================================================== -->
     <div class="grid-container recipeDetails" width= %75 id="recipe-details">
-      <!-- Recipe details will append here-->
+      <!-- recipe details will append here-->
+      <div id="recipeTitle" class="row"></div>
       <div class="row">
         <div class="columns large-4 medium-4 recipeDetailsPic">
         </div>
@@ -83,8 +88,7 @@
     <!-- Map container with search bar, list of restaurants and map. -->
     <div id="map-container" class="container-map grid-container">
       <h4 id="dishTitle"></h4>
-
-      <div class="row">
+      <div class="row map-background">
         <div id="mapSearchForm" class="hide small-12 medium-8 large-8 columns">
           <form class="map-col">
             <!-- Search For keyword text box-->
