@@ -170,8 +170,7 @@ function hideUnhideDiv(divToUnhide) {
       );
       break;
   };
-  if ($("#dish-display").hasClass("hide")) { //
-    
+  if ($("#dish-display").hasClass("hide")) {   
     $("#back-button").removeClass("hide");
   } else {
     $("#back-button").addClass("hide");

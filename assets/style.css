@@ -5,11 +5,20 @@ body {
 }
 
 .button {
-  background-color: #e9893a;
+  background: #e9893a;
 }
 
 .button:hover {
   background-color: #84371b;
+}
+
+#regenerate-button {
+  position: relative;
+  top: 900px;
+}
+
+.top-bar {
+  background-color: #1b2625;
 }
 
 /* Random Recipe cards  */
@@ -172,15 +181,6 @@ a:focus {
 
 hr {
   margin: 0px;
-}
-
-.button {
-  background: #f1a260;
-}
-
-#regenerate-button {
-  position: relative;
-  top: 900px;
 }
 
 /* map dish title  */
