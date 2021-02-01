@@ -2,6 +2,7 @@
 body {
   background-color: #f3f6f6;
   color: #1b2625;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .button {
@@ -240,9 +241,25 @@ hr {
     overflow: hidden;
     color: #0a0a0a;
   }
+  #regenerate-button {
+    position: relative;
+    left: 12px;
+  }
 }
 
 /* Top Bar */
 .top-bar {
   background-color: #1b2625;
 }
+
+/* #startCallout {
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  position: relative;
+  background-color: #fff;
+  margin-top: 100px;
+  height: 325px;
+  width: 60%;
+} */
