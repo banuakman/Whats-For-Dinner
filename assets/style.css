@@ -152,7 +152,7 @@ a:focus {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f3b684;
+  background-color: #cdd8d8;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -167,7 +167,7 @@ a:focus {
 }
 
 .dropdown-content a:hover {
-  background-color: #cdd8d8;
+  background-color: #def0f0;
 }
 
 hr {
@@ -175,7 +175,7 @@ hr {
 }
 
 .button {
-  background: #e9893a;
+  background: #f1a260;
 }
 
 #regenerate-button {
