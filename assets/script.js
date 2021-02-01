@@ -189,13 +189,12 @@ function hideUnhideDiv(divToUnhide) {
         "Searching Results For:" + " " + localStorage.getItem("searchTitle")
       );
       break;
-  };
-  if ($("#dish-display").hasClass("hide")) {   
+  }
+  if ($("#dish-display").hasClass("hide")) {
     $("#back-button").removeClass("hide");
   } else {
     $("#back-button").addClass("hide");
   }
-
 }
 
 // DISPLAY RECIPE DETAILS
@@ -206,6 +205,7 @@ function displayRecipeDetail(singleRecipe) {
   // Clear the image container for the recipe and the summary.
   $(".recipeDetailsPic").empty();
   $(".recipeDetailsSummary").empty();
+  $("#recipeTitle").empty();
 
   // Build the recipe detail container with the image of the dish and its summary.
 
@@ -235,29 +235,19 @@ function displayRecipeDetail(singleRecipe) {
 $("#whatsfordinner").on("click", function () {
   randomRecipeContainer.classList.remove("hide");
   startCallout.classList.add("hide");
-
-  // Generate and display 3 recipes.
+  $("#regenerate-button").removeClass("hide");
+  //generate and display 3 recipes
   generateRandomRecipes();
 });
 
-// When the user clicks on the "Offer Me New Dishes" button
-// call a function to get three different random recipes and display them.
+// -- Regenerate choices button
 $("#regenerate-button").on("click", function () {
   generateRandomRecipes();
 });
 
-// // When the user clicks on the Submit button
-// // (on page 2) call a function to get the user's
-// // choices on page 2 get data based on their choices.
-// $("#submit-button").on("click", function () {});
-
-// // When the user clicks on the Back button
-// // (on page 2 - restaurants or recipes) call a
-// // function to go back to the list of random
-// // choices (page 2).
 $("#back-button").on("click", function () {
-    $(this).addClass("hide");
-    hideUnhideDiv("dish-display");
+  $(this).addClass("hide");
+  hideUnhideDiv("dish-display");
 });
 
 // When the user clicks an image of a recipe
