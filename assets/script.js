@@ -268,8 +268,13 @@ $("#regenerate-button").on("click", function () {
 // // function to go back to the list of random
 // // choices (page 2).
 $("#back-button").on("click", function () {
+<<<<<<< HEAD
     $(this).addClass("hide");
     hideUnhideDiv("dish-display");
+=======
+    $("#dish-display").removeClass("hide");
+    $(this).addClass("hide");
+>>>>>>> ad37a3657c499fa9a1f2da5ada9f5ffc7b3f82dd
 });
 
 // When the user clicks an image of a recipe
