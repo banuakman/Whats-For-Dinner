@@ -239,6 +239,7 @@ function displayRecipeDetail(singleRecipe) {
 $("#whatsfordinner").on("click", function () {
   randomRecipeContainer.classList.remove("hide");
   startCallout.classList.add("hide");
+  $("#regenerate-button").removeClass("hide");
   //generate and display 3 recipes
   generateRandomRecipes();
 });
