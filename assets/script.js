@@ -39,8 +39,6 @@ function generateRandomRecipes() {
     recipesObject = response.recipes;
     console.log(recipesObject);
     displayRandom(response.recipes);
-
-
   });
 }
 
@@ -110,7 +108,7 @@ function displayRandom(recipes) {
     var dropDown = $(this).next();
     if (dropDown.is(":hidden")) {
       dropDown.show();
-    } 
+    }
 
     //this is the <a> tag and dropdown is next sibling node/element
     // var selectedIndex = $(this).attr("data-index");
@@ -157,12 +155,12 @@ function hideUnhideDiv(divToUnhide) {
       recipeDetails.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "recipe-details": 
+    case "recipe-details":
       recipeDetails.classList.remove("hide");
       dishDisplay.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "map-container": 
+    case "map-container":
       mapContainer.classList.remove("hide");
       dishDisplay.classList.add("hide");
       recipeDetails.classList.add("hide");
@@ -221,13 +219,14 @@ function displayRecipeDetail(singleRecipe) {
     .attr("class", "singleRecipePicture");
   $(".recipeDetailsPic").append(imgEl);
 
-  var title = singleRecipe.title;
+  var title = $("<h4>").text(singleRecipe.title).attr("id", "titleRecipe");
   var summary = singleRecipe.summary;
-  var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
+  var detailsEl = $("<p>").html("<p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .html(singleRecipe.sourceUrl);
   detailsEl.append(aEl);
+  $("#recipeTitle").append(title);
   $(".recipeDetailsSummary").append(detailsEl);
 }
 
@@ -268,13 +267,8 @@ $("#regenerate-button").on("click", function () {
 // // function to go back to the list of random
 // // choices (page 2).
 $("#back-button").on("click", function () {
-<<<<<<< HEAD
     $(this).addClass("hide");
     hideUnhideDiv("dish-display");
-=======
-    $("#dish-display").removeClass("hide");
-    $(this).addClass("hide");
->>>>>>> ad37a3657c499fa9a1f2da5ada9f5ffc7b3f82dd
 });
 
 // When the user clicks an image of a recipe
