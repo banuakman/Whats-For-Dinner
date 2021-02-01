@@ -102,19 +102,16 @@ function displayRandom(recipes) {
 
   //add event listener to images to show the drop down menu
   $(".recipe-click").on("click", function (event) {
+    //hide all the dropdown
+    $(".dropdown-content").hide();
+    //only show the drop down of selected card
     var dropDown = $(this).next();
-    console.log(dropDown);
     if (dropDown.is(":hidden")) {
       dropDown.show();
-    } else if (!event.target.matches(".recipe-click")) {
-      console.log("click");
-      $(".dropdown-content").hide();
-    } else {
-      dropDown.hide();
     }
 
     //this is the <a> tag and dropdown is next sibling node/element
-    var selectedIndex = $(this).attr("data-index");
+    // var selectedIndex = $(this).attr("data-index");
 
     //toggle the rest of cards: if it's shown, then hide the rest; if it's hidden, then show the rest
     // $(".recipe-click").each(function (index, element) {
