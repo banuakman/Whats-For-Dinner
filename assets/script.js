@@ -1,8 +1,5 @@
 // Dependencies ==========================================
-// - DOM Elements
-// - variables
-
-// Get the DOM elements to hide when initially loading page.
+// - DOM Elements - Get the DOM elements we need
 var randomRecipeContainer = document.getElementById("dish-display");
 var startCallout = document.getElementById("startCallout");
 var displayMap = document.getElementById("map-container");
@@ -14,13 +11,10 @@ randomRecipeContainer.classList.add("hide");
 displayMap.classList.add("hide");
 // restaurantList.classList.add("hide");
 
-// Data ==================================================
-
-// Functions =============================================
-
 // AJAX Call Spoonacular API
 var recipesObject;
 function generateRandomRecipes() {
+  // Get three random recipes by calling the Spoonacular API
   const spoonacularSettings = {
     async: true,
     crossDomain: true,
@@ -35,21 +29,23 @@ function generateRandomRecipes() {
     },
   };
 
+  // Store the recipes object and display the recipes.
   $.ajax(spoonacularSettings).done(function (response) {
     recipesObject = response.recipes;
-    console.log(recipesObject);
     displayRandom(response.recipes);
-
-
   });
 }
 
 // Display 3 Random Dishes with Title & Picture
 function displayRandom(recipes) {
+  // Show the three dishes and hide the recipe detail and map containers.
   hideUnhideDiv("dish-display");
 
+  // Clear out anything that may be in the random recipes image container.
   $(".randomRecipes").html("");
 
+  // Loop through the recipes object and build out the random recipes
+  // cards with the three dish titles and images.
   for (var i = 0; i < recipes.length; i++) {
     var cellEl = $("<div>").attr("class", "columns large-4 medium-4");
     var cardEl = $("<div>").attr("class", "card randomRecipeCard");
@@ -59,23 +55,28 @@ function displayRandom(recipes) {
     var titleEl = $("<div>")
       .attr("class", "card-section randomCardTitle")
       .html("<h5>" + title + "</h5>");
+
     var imgEl = $("<img>")
       .attr("src", recipes[i].image)
       .attr("alt", recipes[i].title)
       .attr("class", "randomRecipePicture dropBtn");
+
+    // Link on image to display the drop-down menu for
+    // recipe or restaurant
     var aEl = $("<a>")
       .attr("class", "recipe-click")
       .attr("href", "#")
       .attr("data-index", i)
       .append(imgEl); //need this to make image become clickable
 
-    //add drop down options of eating in or eating out to each recipe card but don't display unless image is clicked
-    //TODO add class and styles for drop down options
+    // Add drop down options of eating in or eating out to each recipe card but don't display unless image is clicked
     var dropDown = $("<div>").attr("class", "dropdown-content");
     var inEl = $("<a href='#' class='showRecipe'>Get The Recipe</a>").attr(
       "data-index",
       i
     );
+
+    // Build the dropdown menu under each dish card: "Get the Recipe", "Find a Restaurant Near You"
     var outEl = $(
       "<a href='# class='showRestaurant'>Find A Restaurant Near You</a>"
     ).attr("data-title", title);
@@ -84,17 +85,20 @@ function displayRandom(recipes) {
     cardEl.append(titleEl).append(aEl).append(dropDown);
     $(".randomRecipes").append(cellEl);
 
-    //add event listnener to user choice for eat in or eat out
+    // Add event listnener to user choice for eat in or eat out.
+
+    // Get the Recipe click event
     inEl.click(function () {
       var index = $(this).attr("data-index");
       displayRecipeDetail(recipes[index]);
     });
 
+    // Find a Restaurant Near You click event
     outEl.click(function () {
-      //store title in localstorage for map.js to grab
+      // Store title in localstorage for map.js to grab.
       localStorage.setItem("searchTitle", $(this).attr("data-title"));
 
-      // Unhide the map-container div and hide the recipe-details element,
+      // Unhide the map-container div and hide the recipe-details element
       // and the three dish element.
       hideUnhideDiv("map-container");
 
@@ -102,20 +106,22 @@ function displayRandom(recipes) {
     });
   }
 
-  //add event listener to images to show the drop down menu
+  // Add event listener to images to show the drop down menu.
   $(".recipe-click").on("click", function (event) {
     var dropDown = $(this).next();
-    console.log(dropDown);
+
+    // Display the drop-down box if it is hidden.
     if (dropDown.is(":hidden")) {
       dropDown.show();
+
+    // Hide the dropdown menu if this was not an image click event for a dish.
     } else if (!event.target.matches(".recipe-click")) {
-      console.log("click");
       $(".dropdown-content").hide();
     } else {
       dropDown.hide();
     }
 
-    //this is the <a> tag and dropdown is next sibling node/element
+    // This is the <a> tag and dropdown is next sibling node/element.
     var selectedIndex = $(this).attr("data-index");
 
     //toggle the rest of cards: if it's shown, then hide the rest; if it's hidden, then show the rest
@@ -135,7 +141,7 @@ function displayRandom(recipes) {
   });
 }
 
-//hide drop down
+// Hide drop down
 window.onclick = function (event) {
   if (!event.target.matches(".dropBtn")) {
     $(".dropdown-content").hide();
@@ -178,46 +184,25 @@ function hideUnhideDiv(divToUnhide) {
  // recipeDetails.classList.remove("hide");
 }
 
-// --------Display Restaurant Details  (Johanna)
-// When the user clicks the restaurant button from the selected image --- >
-// the current displays hides (id = dish-display)
-// and the new display shows (id = "map-container")
-function unhideMapContainer() {
-  // Hide the dish-display div.
-  var dishDisplay = document.getElementById("dish-display");
-  dishDisplay.classList.add("hide");
-
-  // Display the map-container div.
-  var mapContainer = document.getElementById("map-container");
-  mapContainer.classList.remove("hide");
-  document.getElementById("dishTitle").classList.remove("hide");
-
-  $("#dishTitle").text(
-    "Searching Results For:" + " " + localStorage.getItem("searchTitle")
-  );
-}
-
-// ---- Regenerate button initial display
-// --- it starts hidden
-// when whats for dinner button
-
 // DISPLAY RECIPE DETAILS
 function displayRecipeDetail(singleRecipe) {
-  //TODO: change here, recipes object contains all the information including: ingridient, instruction, etc
-  //-----------------------your code should replace this part--------------------/
-
   // Unhide the recipe-details element, hide the map-container div and the the three dish element.
   hideUnhideDiv("recipe-details");
 
+  // Clear the image container for the recipe and the summary.
   $(".recipeDetailsPic").empty();
   $(".recipeDetailsSummary").empty();
 
+  // Build the recipe detail container with the image of the dish and its summary.
+
+  // Add the image.
   var imgEl = $("<img>")
     .attr("src", singleRecipe.image)
     .attr("alt", singleRecipe.title)
     .attr("class", "singleRecipePicture");
   $(".recipeDetailsPic").append(imgEl);
 
+  // Add the recipe summary.
   var title = singleRecipe.title;
   var summary = singleRecipe.summary;
   var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
@@ -228,44 +213,21 @@ function displayRecipeDetail(singleRecipe) {
   $(".recipeDetailsSummary").append(detailsEl);
 }
 
-//----------------------your code ends here-------------------------------
-
 // User Interaction =====================================
 
-// When the user clicks the "What's for Dinner" button (on page 1)
+// When the user clicks the "What's for Dinner" button 
 // call the function to generate three random dishes
 // and display them.
 $("#whatsfordinner").on("click", function () {
   randomRecipeContainer.classList.remove("hide");
   startCallout.classList.add("hide");
-  //generate and display 3 recipes
+
+  // Generate and display 3 recipes.
   generateRandomRecipes();
 });
 
 // When the user clicks on the "Offer Me New Dishes" button
-// (on page 2) call a function to get three
-// different random recipes and display them.
+// call a function to get three different random recipes and display them.
 $("#regenerate-button").on("click", function () {
-  // // --------Regenerate button display function (Johanna)
-  // When the user clicks the regenerate button  --- >
-  // the current display hides
-  // the display display shows (id = dish-display)
-  // Remove the recipe picture and detail before adding again.
-
   generateRandomRecipes();
 });
-
-// // When the user clicks on the Submit button
-// // (on page 2) call a function to get the user's
-// // choices on page 2 get data based on their choices.
-// $("#submit-button").on("click", function () {});
-
-// // When the user clicks on the Back button
-// // (on page 2 - restaurants or recipes) call a
-// // function to go back to the list of random
-// // choices (page 2).
-// $("#back-button").on("click", function () {});
-
-// When the user clicks an image of a recipe
-// on the recipe list page (page 3) call a
-// function to display the recipe detail page.
