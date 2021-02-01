@@ -24,7 +24,7 @@ ON ALL THE WINDOWS, there is an option to randomly generate three more random di
 ```
 
 ## Technologies Used
-This application implements vanilla javaScript as well a jQuery to dynamically traverse DOM elements on the page. 
+This application implements vanilla javaScript as well as jQuery to dynamically traverse DOM elements on the page. 
 The deployed webpage utilizes the Spoonacular and Google Maps APIs to retrieve the recipes restaurants and location data that displayed to the user. 
 The Foundation CSS framework was used to style the responsive layout.
 
