@@ -2,7 +2,8 @@
 body {
   background-color: #f3f6f6;
   color: #1b2625;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: font-family: 'Acme', sans-serif;
+
 }
 
 .button {
@@ -16,6 +17,8 @@ body {
 #regenerate-button {
   position: relative;
   left: 25px;
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 /* Random Recipe cards  */
@@ -244,6 +247,7 @@ hr {
   #regenerate-button {
     position: relative;
     left: 12px;
+    
   }
 }
 
@@ -252,7 +256,7 @@ hr {
   background-color: #1b2625;
 }
 
-/* #startCallout {
+#startCallout {
   margin: auto;
   padding: 1rem;
   border: 1px solid rgba(10, 10, 10, 0.25);
@@ -260,6 +264,25 @@ hr {
   position: relative;
   background-color: #fff;
   margin-top: 100px;
-  height: 325px;
+  height: 395px;
   width: 60%;
-} */
+}
+
+#whatsfordinner {
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+#dinnerPitch {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#dinnerHead {
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 50px;
+}
