@@ -2,7 +2,7 @@
 body {
   background-color: #f3f6f6;
   color: #1b2625;
-  font-family: "Acme", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .button {
@@ -286,6 +286,7 @@ hr {
     background-color: #e9893a;
   }
 
+<<<<<<< HEAD
   #startCallout {
     margin: auto;
     padding: 1rem;
@@ -305,6 +306,36 @@ hr {
     margin-top: 30px;
     font-size: 30px;
   }
+=======
+/* Top Bar */
+.top-bar {
+  background-color: #1b2625;
+}
+
+#startCallout {
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  position: relative;
+  background-color: #fff;
+  margin-top: 100px;
+  width: 75%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#whatsfordinner {
+  padding: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+#dinnerPitch {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+>>>>>>> merge-code-cleanup
 
   #dinnerPitch {
     margin-top: 15px;
