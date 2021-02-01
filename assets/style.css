@@ -246,6 +246,7 @@ hr {
   #regenerate-button {
     position: relative;
     left: 12px;
+    background-color: #e9893a;
   }
 }
 
