@@ -31,7 +31,7 @@ This application implements vanilla javaScript as well as jQuery to dynamically 
 The deployed webpage utilizes the Spoonacular and Google Maps APIs to retrieve the recipes, restaurants and location data displayed to the user.
 The Foundation CSS framework was used to style the responsive layout.
 
-![What's For Dinner](https://user-images.githubusercontent.com/22566791/106485860-e3b9a100-6465-11eb-80f0-36f098433e4f.gif
+
 
 ## Deployment
 
