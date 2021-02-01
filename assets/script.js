@@ -169,8 +169,13 @@ function hideUnhideDiv(divToUnhide) {
         "Searching Results For:" + " " + localStorage.getItem("searchTitle")
       );
       break;
+  };
+  if ($("#dish-display").hasClass("hide")) {   
+    $("#back-button").removeClass("hide");
+  } else {
+    $("#back-button").addClass("hide");
   }
-  // recipeDetails.classList.remove("hide");
+
 }
 
 // --------Display Restaurant Details  (Johanna)
@@ -260,7 +265,10 @@ $("#regenerate-button").on("click", function () {
 // // (on page 2 - restaurants or recipes) call a
 // // function to go back to the list of random
 // // choices (page 2).
-// $("#back-button").on("click", function () {});
+$("#back-button").on("click", function () {
+    $(this).addClass("hide");
+    hideUnhideDiv("dish-display");
+});
 
 // When the user clicks an image of a recipe
 // on the recipe list page (page 3) call a
