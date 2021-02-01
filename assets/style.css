@@ -17,10 +17,6 @@ body {
   top: 900px;
 }
 
-.top-bar {
-  background-color: #1b2625;
-}
-
 /* Random Recipe cards  */
 
 .randomRecipeInfo {
@@ -52,6 +48,12 @@ body {
 .randomRecipeCard {
   display: block;
   object-fit: cover;
+}
+
+/* recipe details */
+
+#recipe-details {
+    padding: 50px;
 }
 
 /* the actual map  */
@@ -195,4 +197,9 @@ hr {
   box-shadow: inset 0 0 10px #e9e6e6;
   font-size: 24px;
   margin-bottom: 50px;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #1b2625;
 }
