@@ -6,7 +6,7 @@ With the ever looming question, "What's for dinner?" causing headaches and wasti
 
 ## User Story
 ```
-WHEN the user presses What's for Dinner? button
+WHEN the user presses "What's for Dinner?" button
 GIVEN 3 randomly generated options with clickable images. 
 THEN user clicks image to select an dish or randomly generate another 3 options
 
