@@ -192,7 +192,7 @@ function unhideMapContainer() {
   document.getElementById("dishTitle").classList.remove("hide");
 
   $("#dishTitle").text(
-    "Searching Results For:" + " " + localStorage.getItem("searchTitle")
+    "Results For:" + " " + localStorage.getItem("searchTitle")
   );
 }
 
