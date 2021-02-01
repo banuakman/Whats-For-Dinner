@@ -244,28 +244,11 @@ $("#whatsfordinner").on("click", function () {
   generateRandomRecipes();
 });
 
-// When the user clicks on the "Offer Me New Dishes" button
-// (on page 2) call a function to get three
-// different random recipes and display them.
+// -- Regenerate choices button
 $("#regenerate-button").on("click", function () {
-  // // --------Regenerate button display function (Johanna)
-  // When the user clicks the regenerate button  --- >
-  // the current display hides
-  // the display display shows (id = dish-display)
-  // Remove the recipe picture and detail before adding again.
-
   generateRandomRecipes();
 });
 
-// // When the user clicks on the Submit button
-// // (on page 2) call a function to get the user's
-// // choices on page 2 get data based on their choices.
-// $("#submit-button").on("click", function () {});
-
-// // When the user clicks on the Back button
-// // (on page 2 - restaurants or recipes) call a
-// // function to go back to the list of random
-// // choices (page 2).
 $("#back-button").on("click", function () {
   $(this).addClass("hide");
   hideUnhideDiv("dish-display");

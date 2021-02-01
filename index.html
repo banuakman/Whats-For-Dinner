@@ -10,6 +10,8 @@
       rel="stylesheet"
       href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <!-- link to css style sheet  -->
     <link rel="stylesheet" href="./assets/style.css" />
     <!-- google maps api src  -->
@@ -22,7 +24,6 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-   
   </head>
 
   <body>
@@ -36,10 +37,10 @@
 
 
     <!--CALLOUT WITH GENERATING RANDOM DISHES BUTTON============================================= --> 
-    <div class="callout large-12 medium-12" id="startCallout">
+    <div class="large-12 medium-12" id="startCallout">
       <div class="row column text-center">
-        <h3>What's For Dinner</h3>
-        <h5>Tired of deciding what's for dinner? <br> Click the button and get 3 random dishes!</h5>
+        <h3 id="dinnerHead">What's For Dinner?</h3>
+        <h5 id="dinnerPitch">Tired of deciding what's for dinner? <br> Click the button and get 3 random dishes!</h5>
         <button class="button large" type="button" id="whatsfordinner">What's for Dinner?</button>
       </div>
     </div>
@@ -48,7 +49,7 @@
     <div id="dish-display" class="grid-container" width= %75>
       <div class="row ">
         <div class="columns large-12 medium-12 randomRecipeInfo">
-          <h5>Here are some suggestions. Click on the meal that you want to try !</h5>
+          <h5 style="font-weight: bold;">Click on the dish that you want to try !</h5>
            <!--<p id=infoline>If you do not like those, you can always ask for</p>
          <button class="button small" type="button" id="new-offers">new offers</button>-->
         </div>
@@ -59,6 +60,7 @@
         <!-- display recipe button will append here in dropdown menu-->
       </div>
     </div>
+
     <div class="row column">
       <button class="button hide" type="button" id="back-button" style="margin:20px auto 20px auto">back to dishes</button>
     </div>
@@ -145,7 +147,7 @@
     <!-- Regenarate Buttons -->
     <div class="grid-container"></div>
       <div class="row text-center">
-        <button class="button large" type="button" id="regenerate-button">Show Me New Dishes</button>
+        <button class="button large hide" type="button" id="regenerate-button">Show Me New Dishes</button>
       </div>
     </div>
       
