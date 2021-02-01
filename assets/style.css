@@ -200,9 +200,46 @@ hr {
 }
 
 /* recipe details */
-
+/* 
 #recipe-details {
   padding: 30px;
+} */
+/* Top Bar */
+.top-bar {
+  background-color: #1b2625;
+}
+
+#startCallout {
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  position: relative;
+  background-color: #fff;
+  margin-top: 100px;
+  height: auto;
+  width: 60%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+#whatsfordinner {
+  padding: 20px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+#dinnerPitch {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#dinnerHead {
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 50px;
 }
 
 #titleRecipe {
@@ -230,8 +267,8 @@ hr {
   }
 
   #dishTitle {
-    left: 35px;
-    width: 85%;
+    width: 60%;
+    left: 80px;
   }
 
   list-group {
@@ -248,42 +285,32 @@ hr {
     left: 12px;
     background-color: #e9893a;
   }
-}
 
-/* Top Bar */
-.top-bar {
-  background-color: #1b2625;
-}
+  #startCallout {
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid rgba(10, 10, 10, 0.25);
+    border-radius: 0;
+    position: relative;
+    right: 40px;
+    background-color: #fff;
+    margin-top: 100px;
+    width: 75%;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+  }
 
-#startCallout {
-  margin: auto;
-  padding: 1rem;
-  border: 1px solid rgba(10, 10, 10, 0.25);
-  border-radius: 0;
-  position: relative;
-  background-color: #fff;
-  margin-top: 100px;
-  height: 395px;
-  width: 60%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
+  #dinnerHead {
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 30px;
+  }
 
-#whatsfordinner {
-  padding: 20px;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-#dinnerPitch {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-family: serif;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-#dinnerHead {
-  font-weight: bold;
-  margin-top: 30px;
-  font-size: 50px;
+  #dinnerPitch {
+    margin-top: 15px;
+    margin-bottom: 50px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 25;
+  }
 }
