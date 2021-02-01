@@ -31,7 +31,7 @@ This application implements vanilla javaScript as well as jQuery to dynamically 
 The deployed webpage utilizes the Spoonacular and Google Maps APIs to retrieve the recipes, restaurants and location data displayed to the user.
 The Foundation CSS framework was used to style the responsive layout.
 
-GIF GOES HERE
+![alt-text](/images/whats-for-dinner.gif)
 
 ## Deployment
 
@@ -39,10 +39,10 @@ Live URL https://benrgross.github.io/Whats-For-Dinner/
 
 ## Team
 
-* Banu Akman - https://github.com/banuakman
+- Banu Akman - https://github.com/banuakman
 
-* Ben Gross - https://github.com/benrgross
+- Ben Gross - https://github.com/benrgross
 
-* Johanna Leal - https://github.com/johannaleal
+- Johanna Leal - https://github.com/johannaleal
 
-* Angelina Ma - https://github.com/angelinama
+- Angelina Ma - https://github.com/angelinama
