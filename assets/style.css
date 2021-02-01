@@ -200,3 +200,11 @@ hr {
 .map-background {
   background-color: #eeeeee;
 }
+
+#titleRecipe {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding: 0px 15px;
+  font-weight: bold;
+  font-size: 2.5rem;
+}

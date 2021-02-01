@@ -39,8 +39,6 @@ function generateRandomRecipes() {
     recipesObject = response.recipes;
     console.log(recipesObject);
     displayRandom(response.recipes);
-
-
   });
 }
 
@@ -160,12 +158,12 @@ function hideUnhideDiv(divToUnhide) {
       recipeDetails.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "recipe-details": 
+    case "recipe-details":
       recipeDetails.classList.remove("hide");
       dishDisplay.classList.add("hide");
       mapContainer.classList.add("hide");
       break;
-    case "map-container": 
+    case "map-container":
       mapContainer.classList.remove("hide");
       dishDisplay.classList.add("hide");
       recipeDetails.classList.add("hide");
@@ -174,8 +172,8 @@ function hideUnhideDiv(divToUnhide) {
         "Searching Results For:" + " " + localStorage.getItem("searchTitle")
       );
       break;
-  };
- // recipeDetails.classList.remove("hide");
+  }
+  // recipeDetails.classList.remove("hide");
 }
 
 // --------Display Restaurant Details  (Johanna)
@@ -218,13 +216,14 @@ function displayRecipeDetail(singleRecipe) {
     .attr("class", "singleRecipePicture");
   $(".recipeDetailsPic").append(imgEl);
 
-  var title = singleRecipe.title;
+  var title = $("<h4>").text(singleRecipe.title).attr("id", "titleRecipe");
   var summary = singleRecipe.summary;
-  var detailsEl = $("<p>").html("<h4>" + title + "</h4><p>" + summary + "</p>");
+  var detailsEl = $("<p>").html("<p>" + summary + "</p>");
   var aEl = $("<a>")
     .attr("href", singleRecipe.sourceUrl)
     .html(singleRecipe.sourceUrl);
   detailsEl.append(aEl);
+  $("#recipeTitle").append(title);
   $(".recipeDetailsSummary").append(detailsEl);
 }
 
